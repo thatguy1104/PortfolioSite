@@ -26,6 +26,12 @@ ul {
   margin: 0px;
 }
 
+ul.ordered {
+  list-style: outside;
+  margin: 0px;
+  font-size: 16px;
+}
+
 p {
   font-size: 16px;
   line-height: 26px;
