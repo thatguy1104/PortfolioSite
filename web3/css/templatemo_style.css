@@ -30,6 +30,7 @@ ul.ordered {
   list-style: outside;
   margin: 0px;
   font-size: 16px;
+  margin-left: 10px;
 }
 
 p {
