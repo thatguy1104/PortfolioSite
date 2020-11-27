@@ -305,7 +305,7 @@ p {
 
 #about {
   padding: 0px;
-  background-image: url(../img/services-bg.jpg);
+  background-color: #363e50;
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -330,6 +330,12 @@ p {
 #about .service-item p {
   margin-bottom: 0px;
   color: #fff;
+}
+
+.teamm {
+  color: #fff;
+
+  text-align: center;
 }
 
 #about .first-service {
@@ -420,6 +426,7 @@ p {
 
 .what-we-do .tab-content-services .left-text p {
   color: #7a7a7a;
+  text-align: left;
 }
 
 .what-we-do .tab-content-services .left-text .primary-button {
