@@ -301,6 +301,14 @@ p {
   margin-top: 45px;
 }
 
+img.personas {
+  width: 100%;
+  height: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 
 
 #about {
@@ -334,7 +342,6 @@ p {
 
 .teamm {
   color: #fff;
-
   text-align: center;
 }
 
