@@ -311,7 +311,7 @@ http://www.templatemo.com/tm-508-power
                                                         <p>What we can learn from this project is the data sources used, as well as explore classification techniques for classifying researchers’ publications into appropriate fields. Subsequently, given existing data that was put together manually, UCL5 MieMie aims to automate data scraping and validation using Python programming language and deployment technologies.</p>
                                                     <br><br>
                                                     <h4>Technology Review</h4>
-                                                        <br><p><b>Possible Solutions:</b></p>
+                                                        <p><b>Possible Solutions:</b></p>
                                                             <p>Possible solutions include using Python’s scraping library Beautifulsoup to gather data from a specified source, setting up a deployment environment in Microsoft Azure and utilising Azure Functions for timing each scrape and validation automatically. The code base itself resides on a GitHub repository. </p>
                                                             <p>The idea is to perform an initial large scale scrape, gathering initial set of data in a structured and normalised manner. Upon completion, the next step involves a different set of programs that run with the purpose of checking the source data set for potential updates / changes to the data. If any change is observed, the scripts are to stage a validation on the project’s data.</p>
                                                         <br><p><b>Possible Design Structure</b></p>
@@ -320,11 +320,10 @@ http://www.templatemo.com/tm-508-power
                                                             <p>To gather data, we are going to be using RPS UCL data repository. It has several access types, and the public section of it is accessible through the use of their API [2].</p>
                                                     <br><br>
                                                     <h4>Database</h4>
-                                                        <br>
                                                         <p>Microsoft Azure SQL Server will be used to host a SQL Database. Alternative options include using non-relational databases such as a document based database - mongoDB. However, upon evaluation, the team has decided to use the concept of relations to organise data in a logical and coherent manner, with faster access time, ensuring data consistency and integrity.</p>
                                                     <br><br>
                                                     <h4>Deployment Automation:</h4>
-                                                        <br><p><b>Digital Ocean</b></p>
+                                                        <p><b>Digital Ocean</b></p>
                                                             <ul class="ordered">
                                                                 <li><p>Digital Ocean Allows for creation of a Droplet Cronjob, for automation of particular scripts that run in a Linux VM. Although it's convenient, it does not provide features like backups, security firewall and it's harder to keep track of permissions compared to something like AWS or Microsoft Azure.</p></li>
                                                                 <li><p>It is a good choice for this project due to its simplicity; given a tight schedule we are still able to manage to stick to the ideologies of continuous integration and test-driven development.</p></li>
@@ -354,11 +353,6 @@ http://www.templatemo.com/tm-508-power
                                                     <br><br>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
-                                                <div class="right-image">
-                                                    <!-- <img src="img/right-side-image_2.jpg" alt="">  -->
-                                                </div>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -373,12 +367,7 @@ http://www.templatemo.com/tm-508-power
                                                             <li><p></p></li>
                                                             <li><p></p></li>
                                                         </ul>
-                                                        <br><br>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="right-image">
-                                                    <img src="img/right-side-image_3.jpg" alt="">
+                                                    <br><br>
                                                 </div>
                                             </div>
                                         </div>
@@ -387,20 +376,95 @@ http://www.templatemo.com/tm-508-power
                                 <div id="event">
                                     <div class="row">
                                         <div class="tab-content-services">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="left-text">
-                                                    <h4>Implementation</h4>
+                                                    <h4>Programming Language and Integrated Development Environment</h4>
+                                                    <ul class="ordered">
+                                                        <li><p>We will be using the Python programming language for ease of implementation with front-end web development and natural language processing</p></li>
+                                                        <li><p>There exist many libraries and APIs such as NLTK, PyTorch and spaCy that are widely used for NLP related tasks and provide a large amount of support, which, furthermore, will help with learning around the subject area</p></li>
+                                                        <li><p>The Microsoft Azure cloud-based service offers central management for our system code, databases and timed scrapes</p></li>
+                                                        <li><p>Azure functions support data mining related tasks – scraping the RPS database and UCL module catalogues</p></li>
+                                                    </ul>
+
+                                                    <br><br>
+
+                                                    <h4>Web Scraping</h4>
+                                                    <ul class="ordered">
+                                                        <li><p>Scraping the RPS Data Repository using the Beautifulsoap python library to gather and clean the data</p></li>
+                                                        <li><p>Furthermore, a scraping tool for UCL discovery and Module Catalogue using the Beautifulsoap python library. The scraping is categorized as:</p>
+                                                            <ul class="ordered_2">
+                                                                <li><p>High-level scraping to get research publications for all years</p></li>
+                                                                <li><p>Scraping individual years</p></li>
+                                                                <li><p>Scraping individual pages</p></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li><p>Web scrapes will be done continuously on a timed basis. Implemented code are triggered by events using Microsoft Azure functions</p></li>
+                                                    </ul>
+
+                                                    <br><br>
+
+                                                    <h4>Front-end Development</h4>
+                                                    <ul class="ordered">
+                                                        <li><p>HTML, CSS, JavaScript will be used for Front-end website development, based on the design of our prototype using Miro</p></li>
+                                                        <br><img src="img/1.jpg" alt="Prototype 1" class="personas"><br>
+                                                        <li><p>HTML will be used to structure the webpage, based on the above diagram and JavaScript for scripting and interactions</p></li>
+                                                        <li><p>The Bootstrap CSS Framework will help provide style to the webpage to make it more visually appealing</p></li>
+                                                    </ul>
+
+                                                    <br><br>
+
+                                                    <h4>Back-end Development</h4>
+                                                    <ul class="ordered">
+                                                        <li><p>Hosting a SQL database using Microsoft Azure Server</p></li>
+                                                        <li><p>Retrieving data from the database using MySQL Queries, which will be used as input for the NLP Model</p></li>
+                                                    </ul>
+
+                                                    <br><br>
+
+                                                    <h4>NLP – Natural Language Processing</h4>
+                                                        <p><b>Keyword Searches</b></p>
                                                         <ul class="ordered">
-                                                            <li><p></p></li>
-                                                            <li><p></p></li>
-                                                            <li><p></p></li>
+                                                            <li><p>The brief involves mapping Standard Development Goals (SDG) keywords to the UCL module catalogue to achieve a better understanding as to how much course content and teaching relates to each SDG.</p></li>
+                                                            <li><p>The optimal solution for the problem is still unknown. The following research areas listed below are to be experimented with to gain a better understanding of problem we need to solve:</p></li>
+                                                                <ul class="ordered">
+                                                                    <li><p>Keyword Extraction – <i>involves extracting keywords from text documents.</i></p></li>
+                                                                    <li><p>Keyword Assignment – <i>tagging documents with keywords, phrases or topics.</i></p></li>
+                                                                    <li><p>Text Classification – <i>categorizes or clusters text into organized groups. Text classifiers automatically analyse text and assign pre-defined tags/keywords.</i></p></li>
+                                                                    <li><p>Topic Modelling – <i>statistical model for discovering abstract topics that occur in a collection of documents.</i></p></li>
+                                                                </ul>
+                                                            <li><p>The python libraries listed below will help with the implementation of these related tasks. The above approaches are all subsets of NLP.</p></li>
                                                         </ul>
-                                                        <br><br>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="right-image">
-                                                    <img src="img/right-side-image_4.jpg" alt="">
+                                                        <br><p><b>PyTorch</b></p>
+                                                        <ul class="ordered">
+                                                            <li><p>PyTorch framework - an open-source machine learning library for natural language processing. The purpose of NLP is used to classify activities taking place across UCL, within Healthcare engineering.</p></li>
+                                                            <li><p>There are 2 levels of classes that can be used for building recurrent neural networks:</p></li>
+                                                                <ul class="ordered">
+                                                                    <li><p>Multi-layer classes: nn.RNN, nn.LSTM, nn.GRU</p></li>
+                                                                    <li><p>Cell-level classes: nn.RNNCell, nn.LSTMCell, nn.GRUCell</p></li>
+                                                                </ul>
+                                                            <li><p>Multi-layer classes represent deep bidirectional recurrent neural networks. Cell-level classes represent a single cell, which can handle only one timestep of input data.</p></li>
+                                                            <br><img src="img/nn.png" alt="Prototype 1" class="personas"><br>
+                                                            <li><p>70% of data in the training set – this is the data that the recurrent network will be trained on. The remaining 30% of data will be used for the validation set – unseen data to measure the accuracy of the recurrent neural network.</p></li>
+                                                            <li><p>The test and validation data sets will be partitioned using the RPS data repository and UCL Discovery as an alternative data source.</p></li>
+                                                            <li><p>For example: torch.utils.data.random_split(dataset, lengths)</p></li>
+                                                        </ul>
+                                                    <br><br>
+
+                                                    <h4>NLTK – Natural Language Toolkit</h4>
+                                                    <ul class="ordered">
+                                                        <li><p>The NLTK – Natural Language Toolkit has advantages over PyTorch, making the code much more condense, manageable, and ease of implementation for NLP.</p></li>
+                                                        <li><p>NLTK feature include tokenization, named-entity recognition, text classification, text tagging and RAKE – Rapid Automatic Keyword Extraction which is used for mapping keywords to UCL modules listed in the module catalogue.</p></li>
+                                                    </ul>
+
+                                                    <br><br>
+                                                    <h4>References</h4>
+                                                        <p>[1] 2020. Keyword-Based Topic Modeling And Keyword Selection. [ebook] Evanston, Illinois: Northwestern University. Available at: <https://arxiv.org/pdf/2001.07866.pdf> [Accessed 10 December 2020].</p>
+                                                        <p>[2] Lagus, K. and Kaski, S., 2020. Keyword Selection Method For Characterising Text Document Maps. [online] Helsinki, Finland: Helsinki University of Technology, Neural Networks Research Center. Available at: <https://users.ics.aalto.fi/krista/papers/lagus99icann.pdf> [Accessed 10 December 2020].</p>
+                                                        <p>[3] Montantes, J., 2020. Getting Started With NLP Using The Pytorch Framework - Kdnuggets. [online] KDnuggets. Available at: <https://www.kdnuggets.com/2019/04/nlp-pytorch.html> [Accessed 10 December 2020].</p>
+                                                        <p>[4] Nascimento, A., 2020. How To Cook Neural Nets With Pytorch. [online] Medium. Available at: <https://towardsdatascience.com/how-to-cook-neural-nets-with-pytorch-7954c1e62e16> [Accessed 10 December 2020].</p>
+                                                        <p>[5] Pytorch.org. 2020. TOURCH.NN — Pytorch 1.7.0 Documentation. [online] Available at: <https://pytorch.org/docs/stable/nn.html#recurrent-layers> [Accessed 10 December 2020].</p>
+                                                        <p>[6] Spacy.io. 2020. Training A Text Classification Model. [online] Available at: <https://spacy.io/usage/training#textcat> [Accessed 10 December 2020].</p>
+                                                    <br><br>
                                                 </div>
                                             </div>
                                         </div>

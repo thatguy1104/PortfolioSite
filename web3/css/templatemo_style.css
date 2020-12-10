@@ -33,6 +33,13 @@ ul.ordered {
   margin-left: 10px;
 }
 
+ul.ordered_2 {
+  list-style: outside;
+  margin: 0px;
+  font-size: 16px;
+  margin-left: 40px;
+}
+
 p.abstract {
   font-size: 22px;
   line-height: 26px;
@@ -41,7 +48,7 @@ p.abstract {
 }
 
 p {
-  font-size: 19px;
+  font-size: 18px;
   line-height: 26px;
   letter-spacing: 0.25px;
   font-weight: 300;
