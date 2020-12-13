@@ -40,6 +40,10 @@ ul.ordered_2 {
   margin-left: 40px;
 }
 
+iframe.miro {
+  width: 100%;
+}
+
 p.abstract {
   font-size: 22px;
   line-height: 26px;
