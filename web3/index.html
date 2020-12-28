@@ -229,7 +229,7 @@ http://www.templatemo.com/tm-508-power
                                             <div class="col-md-12">
                                                 <div class="left-text">
                                                     <h4>Project Background & Client Introduction</h4>
-                                                    <p>Our project came about due to a growing need within UCL, centred around the research facility in which their research administration, namely finding various things based on their topic of research such as names and other key terms. This search was taking longer and longer each year due to the increasing number of articles, papers and other publications on each topic coming out each year. This got us connected to various researchers varying from professors, PhD research students and sustainable development researchers. They all required a method to speed up this process and to help get more accurate data automatically rather than repeating this each year manually. </p>
+                                                    <p>Our project came about due to a growing need within UCL, centred around the research facility in which their research administration, namely finding various things based on their topic of research such as names and other key terms. This search was taking longer and longer each year due to the increasing number of articles, papers and other publications on each topic coming out each year. This got us connected to various researchers varying from professors, PhD research students and sustainable development researchers. They all required a method to speed up this process and to help get more accurate data automatically rather than repeating this each year manually.</p>
                                                     <br><br>
                                                     <p>You may find the client's details below:</p>
                                                     <ul class="ordered">
@@ -241,7 +241,7 @@ http://www.templatemo.com/tm-508-power
                                                     <br><br>
 
                                                     <h4>Project Goals</h4>
-                                                    <p>Quisque pulvinar lectus ut massa dignissim, quis hendrerit nibh dignissim. Morbi tempus enim nibh, eget ultrices velit imperdiet aliquet. Proin ultrices mollis viverra. Ut eleifend vitae mi quis scelerisque. In et placerat urna. Nulla at tellus quis diam fermentum elementum. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Curabitur tempor porttitor enim, quis maximus dui elementum ut. Sed vitae vestibulum dolor, non placerat sapien. Nam posuere diam enim, ac tempor tellus facilisis ut.</p>
+                                                    <p>Our main project goals include trying to achieve a way for all researchers to be able to find and contact other researchers that are working on or have worked on the same field of study as them. The project goals also include trying to ensure that the RPS database can be scraped in order to find all papers that are linked to the search field used that can then be used to find all related researchers.</p>
 
                                                     <br><br>
                                                     
@@ -359,12 +359,17 @@ http://www.templatemo.com/tm-508-power
                                 <div id="translation">
                                     <div class="row">
                                         <div class="tab-content-services">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="left-text">
                                                     <h4>System Design</h4>
+                                                        <p><b>Server Communication Structure</b></p>
                                                         <ul class="ordered">
-                                                            <li><p></p></li>
-                                                            <li><p></p></li>
+                                                            <br><img src="img/sysdesign.png" alt="Server Communication Diagram" class="personas"><br>
+                                                            <li><p>The user would send requests to the database via a search tool that would use keywords of the user’s choice that would be used as the basis of their search. This request is sent to the azure database where it then sends a request to the information database (such as RPS) and this would provide the full scale of information and data that it contains. This information is used by our algorithm to scrape and sort through the information based on the user’s request. Once it has the required, sorted information, it is then sent back to the user in a form that can be easily visualised.</p></li>
+                                                        </ul>
+                                                        <p><b>Design Structure</b></p>
+                                                        <ul class="ordered">
+                                                            <li><p>OOP Concepts</p></li>
                                                             <li><p></p></li>
                                                         </ul>
                                                     <br><br>
