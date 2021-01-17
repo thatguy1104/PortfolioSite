@@ -115,6 +115,27 @@ http://www.templatemo.com/tm-508-power
                                         <li><i class="fa fa-calendar"></i>29 December 2020</li>
                                     </ul>
                                 </a></li>
+                                <li><a href="#tab12">
+                                    Week 12: Scopus Scrape Infrastructure
+                                    <ul class="info-post">
+                                        <li><i class="fa fa-user"></i>Albert</li>
+                                        <li><i class="fa fa-calendar"></i>5 January 2021</li>
+                                    </ul>
+                                </a></li>
+                                <li><a href="#tab13">
+                                    Week 13: SDG's & Module Catalogue
+                                    <ul class="info-post">
+                                        <li><i class="fa fa-user"></i>Albert</li>
+                                        <li><i class="fa fa-calendar"></i>12 January 2021</li>
+                                    </ul>
+                                </a></li>
+                                <li><a href="#tab14">
+                                    Week 14: Bubble Chart Development
+                                    <ul class="info-post">
+                                        <li><i class="fa fa-user"></i>Albert</li>
+                                        <li><i class="fa fa-calendar"></i>19 January 2021</li>
+                                    </ul>
+                                </a></li>
                             </ul>
                         </div>
 
@@ -240,6 +261,39 @@ http://www.templatemo.com/tm-508-power
                                             <li><i class="fa fa-calendar"></i>29 December 2020</li>
                                         </ul>
                                         <p>The NLP integration is still in process, Kareem continues his work on pre-processing and ensuring clean data for higher result validity. Following that, we partitioned the data into test and validation sets using a 70 to 30 split. Now that our data is in the correct format, we fed it into the Support Vector Machine classification algorithm to train our model. Additionally, we have scraped sample data from Scopus, however, still resolving a few issues regarding missing data and the possibility of using different calls to gather various parts of the data to comprise the whole picture.</p>
+                                    </div>
+                                </div>
+                                <div id="tab12">
+                                    <img src="img/blog-post-5.jpg" alt="">
+                                    <div class="text-content">
+                                        <h4>Week 12: Scopus Scrape Infrastructure</h4>
+                                        <ul class="info-post">
+                                            <li><i class="fa fa-user"></i>Albert</li>
+                                            <li><i class="fa fa-calendar"></i>5 January 2021</li>
+                                        </ul>
+                                        <p>During the second week of holidays we have continued our work on Scopus data scraper. I have finally figured out the long-lasting issue - data access through the API. Previously, there has been a restriction placed, which was solved by using UCL VPN to access data points like an abstract, author identifiers as well as data on the author's affiliation. This allowed construction of a clean JSON format file for each of the research publications. So far, as a demo version, I have put together ~1300 such files. It allowed us to focus on feeding that abstract data into the SVM model. We plan to continue cleaning up that data and to get started on SDG -> UCL Module Catalogue classification.</p>
+                                    </div>
+                                </div>
+                                <div id="tab13">
+                                    <img src="img/blog-post-5.jpg" alt="">
+                                    <div class="text-content">
+                                        <h4>Week 13: SDG's & Module Catalogue</h4>
+                                        <ul class="info-post">
+                                            <li><i class="fa fa-user"></i>Albert</li>
+                                            <li><i class="fa fa-calendar"></i>12 January 2021</li>
+                                        </ul>
+                                        <p>This week, we have met with one of our clients regarding his particular request for SDG mapping to UCL Module Catalogue. The issue is that we are unable to perform the training process without the annotated data. However, there are over 5500 modules to annotate. Hence, we contacted our TA, who has approved an alternative decision - to map the modules solely based on a statistical analysis of keywords present. Therefore, we continued using TF-IDF and automated the process of meaningful keyword extraction from the module descriptions and pushed the data in a formatted manner onto the Azure database table. Our next step is to continue that work and get started on the Bubble Chart generation, given that we already possess the Scopus research publications data.</p>
+                                    </div>
+                                </div>
+                                <div id="tab14">
+                                    <img src="img/blog-post-5.jpg" alt="">
+                                    <div class="text-content">
+                                        <h4>Week 14: Bubble Chart Development</h4>
+                                        <ul class="info-post">
+                                            <li><i class="fa fa-user"></i>Albert</li>
+                                            <li><i class="fa fa-calendar"></i>19 January 2021</li>
+                                        </ul>
+                                        <p>Our plan for this week was to get started on the Bubble Chart, have our second prototype demonstration and lastly, meet with the rest of our clients to discuss our progress and confirm it following our MoSCoW list. Bubble Chart generation is challenging, since data used to be comprised manually and we aim to automate the topic generation & matching of that topic to the author & index keywords from the data gathered through the Scopus API. Our plan for the rest of the week is to continue our work on the chart generation and continue SDG -> module catalogue matching. To further note, last Friday, we have successfully presented our project's Elevator Pitch.</p>
                                     </div>
                                 </div>
                             </div>
