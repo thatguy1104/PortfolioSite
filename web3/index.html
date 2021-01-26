@@ -394,43 +394,24 @@ http://www.templatemo.com/tm-508-power
                                                     <br><br>
 
                                                     <h4>Web Scraping</h4>
-                                                    <ul class="ordered">
-                                                        <li><p>Scraping the RPS Data Repository using the Beautifulsoap python library to gather and clean the data</p></li>
-                                                        <li><p>Below you may find a procedure structure for UCL Module Catalogue Scrape:</p></li>
-                                                        <iframe class="miro" height="600" src="https://miro.com/app/live-embed/o9J_lbF5UHI=/?moveToViewport=-609,-264,1503,796" frameBorder="0" scrolling="no" allowFullScreen></iframe>
-                                                            <ul class="ordered_2">
-                                                                <li><p>The script start running at global_controller.py. Utilisation of object-oriented programming allows for greater control of instantiation, encapsulation and abstraction of data mining scrips.</p></li>
-                                                                <li><p></p></li>
-                                                                <li><p></p></li>
-                                                                <li><p></p></li>
-                                                            </ul>
-                                                        <li><p>Furthermore, a scraping tool for UCL discovery and Module Catalogue using the Beautifulsoap python library. The scraping is categorized as:</p>
-                                                            <ul class="ordered_2">
-                                                                <li><p>High-level scraping to get research publications for all years</p></li>
-                                                                <li><p>Scraping individual years</p></li>
-                                                                <li><p>Scraping individual pages</p></li>
-                                                            </ul>
-                                                        </li>
-                                                        <li><p>Web scrapes will be done continuously on a timed basis. Implemented code are triggered by events using Microsoft Azure functions</p></li>
-                                                    </ul>
+                                                    <p><b>First Part: Scraping UCL Module Catalogue</b></p>
+                                                    <p>As the first step, it was necessary to gain insight into the extent to which UCL is able to deliver the key ideologies outlined in the <a href="https://sdgs.un.org/goals" target="_blank">2015 United Nations Sustainable Development Goals</a> (hereafter SDGs) through teaching. Hence, the UCL Module Catalogue was proposed as a data source for natural language processing and categorisation. Initially, the <a href="https://uclapi.com/docs/" target="_blank">UCL API</a> was used to comprise a unique module link. For example, the API provided module name - “Neurology and Neurosurgery - Basic” and module identification “CLNE0012”, which was then used to concatenate to form a final module link - https://www.ucl.ac.uk/module-catalogue/modules/neuromuscular-literature-review-CLNE0010. The data as such was stored in the <i>all_module_links.json</i> file for future use and can be updated by running the <i>initialise_files.py</i> file in the MODULE_CATALOGUE/INITIALISER directory. Consequently, that unique link was piped into the "BeautifulSoup" Python library to obtain a webpage html file data for all 5576 modules (at the time of conducting the project).</p>
+                                                        <br><img src="img/scrapingDiagram.png" alt="Prototype 1" class="personas"><br>
+                                                    <p>Object oriented programming allowed us for greater control of instantiation, encapsulation and abstraction of data mining scripts. Specifically, it was useful in abstraction of initialisation, specifically, obtaining all module-related and departmental metadata. Thus, by running <i>global_controller.py</i> one may instantiate all necessary files to proceed with the module-to-SDG mapping process. The following data points were obtained: module title, module ID, faculty, department, credit value, module lead name and description. Upon processing each one of those strings into cleaner form, the data was organised into a tuple and stored in a list and pushed to the ModuleData table in the MainDB database using “pyodbc” Python library.</p>
 
                                                     <br><br>
 
-                                                    <h4>Front-end Development</h4>
-                                                    <ul class="ordered">
-                                                        <li><p>HTML, CSS, JavaScript will be used for Front-end website development, based on the design of our prototype using Miro</p></li>
-                                                        <br><img src="img/1.jpg" alt="Prototype 1" class="personas"><br>
-                                                        <li><p>HTML will be used to structure the webpage, based on the above diagram and JavaScript for scripting and interactions</p></li>
-                                                        <li><p>The Bootstrap CSS Framework will help provide style to the webpage to make it more visually appealing</p></li>
-                                                    </ul>
-
-                                                    <br><br>
-
-                                                    <h4>Back-end Development</h4>
-                                                    <ul class="ordered">
-                                                        <li><p>Hosting a SQL database using Microsoft Azure Server</p></li>
-                                                        <li><p>Retrieving data from the database using MySQL Queries, which will be used as input for the NLP Model</p></li>
-                                                    </ul>
+                                                    <h4>Processing Algorithms & Back-end</h4>
+                                                    <p>It is worth noting that the processes described below formed a part in a back-up, alternative approach to SDG mapping. Due to an issue with large dataset annotation, it was agreed with our clients that this change was necessary for delivering an improvement into the current classification processes.</p>
+                                                    <p><b>Module Match</b></p>
+                                                        <br><img src="img/moduleMatch.png" alt="Module Match" class="personas"><br>
+                                                        <p>The following process illustrated below demonstrates the algorithm for matching UCL Module Catalogue to sustainable development goals provided in the SDG_Keywords.csv file. The processing file - map.py also pulls the data from ModuleData database table, which contains all data relating to a particular module, including its description, title, credit value, module lead name and so on. It uses that data to comprise a single string, which alongside a single keyword is piped into a pre-processing unit, which uses NLTK to lemmatise the given strings. Lastly, the algorithm checks whether or not that keyword is present in any text data in a particular module, if so, it stores it into the matchedModulesSDG.json file.</p>
+                                                    <p><b>Scopus Match</b></p>
+                                                        <br><img src="img/scopusMatch.png" alt="Scopus Match" class="personas"><br>
+                                                        <p>Diagram above illustrates a similar to the Module Catalogue to SDG Mapping, but this time it matches Scopus Research Publications to the sustainable development goals. The only difference is the type of data considered. Scopus provides more details about a particular publication, therefore, it allows for greater comparison and a more accurate matching. In this case, data points like abstract, title, author keywords, index keywords and subject area keywords are considered during string comparison. As a result, it generates the matchedScopusSDG.json file for further development.</p>
+                                                    <p><b>Scopus Data Generation</b></p>
+                                                        <br><img src="img/scopusData.png" alt="Scopus Data Generation" class="personas"><br>
+                                                        <p>Diagram above illustrates the formation of the underlying dataset - common to all members of our client group. Therefore, the pybliometrics.py program carries out numerous tasks including reading individual research publication identifiers (DOIs) from the Research Publication Service (RPS) to act as a basis for the Scopus API request using the Python “requests” library</p>
 
                                                     <br><br>
 
