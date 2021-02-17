@@ -432,41 +432,41 @@ http://www.templatemo.com/tm-508-power
                                             <div class="col-md-12">
                                                 <div class="left-text">
                                                     <h4>Programming Language and Integrated Development Environment</h4>
-                                                    <ul class="ordered">
-                                                        <li><p>We will be using the Python programming language for ease of implementation with front-end web development and natural language processing</p></li>
-                                                        <li><p>There exist many libraries and APIs such as NLTK, PyTorch and spaCy that are widely used for NLP related tasks and provide a large amount of support, which, furthermore, will help with learning around the subject area</p></li>
-                                                        <li><p>The Microsoft Azure cloud-based service offers central management for our system code, databases and timed scrapes</p></li>
-                                                        <li><p>Azure functions support data mining related tasks – scraping the RPS database and UCL module catalogues</p></li>
-                                                    </ul>
+                                                        <ul class="ordered">
+                                                            <li><p>We will be using the Python programming language for ease of implementation with front-end web development and natural language processing</p></li>
+                                                            <li><p>There exist many libraries and APIs such as NLTK, PyTorch and spaCy that are widely used for NLP related tasks and provide a large amount of support, which, furthermore, will help with learning around the subject area</p></li>
+                                                            <li><p>The Microsoft Azure cloud-based service offers central management for our system code, databases and timed scrapes</p></li>
+                                                            <li><p>Azure functions support data mining related tasks – scraping the RPS database and UCL module catalogues</p></li>
+                                                        </ul>
 
                                                     <br><br>
 
                                                     <h4>Web Scraping</h4>
-                                                    <p><b>First Part: Scraping UCL Module Catalogue</b></p>
-                                                    <p>As the first step, it was necessary to gain insight into the extent to which UCL is able to deliver the key ideologies outlined in the <a href="https://sdgs.un.org/goals" target="_blank">2015 United Nations Sustainable Development Goals</a> (hereafter SDGs) through teaching. Hence, the UCL Module Catalogue was proposed as a data source for natural language processing and categorisation. Initially, the <a href="https://uclapi.com/docs/" target="_blank">UCL API</a> was used to comprise a unique module link. For example, the API provided module name - “Neurology and Neurosurgery - Basic” and module identification “CLNE0012”, which was then used to concatenate to form a final module link - https://www.ucl.ac.uk/module-catalogue/modules/neuromuscular-literature-review-CLNE0010. The data as such was stored in the <i>all_module_links.json</i> file for future use and can be updated by running the <i>initialise_files.py</i> file in the MODULE_CATALOGUE/INITIALISER directory. Consequently, that unique link was piped into the "BeautifulSoup" Python library to obtain a webpage html file data for all 5576 modules (at the time of conducting the project).</p>
-                                                        <br><img src="img/scrapingDiagram.png" alt="Prototype 1" class="personas"><br>
-                                                    <p>Object oriented programming allowed us for greater control of instantiation, encapsulation and abstraction of data mining scripts. Specifically, it was useful in abstraction of initialisation, specifically, obtaining all module-related and departmental metadata. Thus, by running <i>global_controller.py</i> one may instantiate all necessary files to proceed with the module-to-SDG mapping process. The following data points were obtained: module title, module ID, faculty, department, credit value, module lead name and description. Upon processing each one of those strings into cleaner form, the data was organised into a tuple and stored in a list and pushed to the ModuleData table in the MainDB database using “pyodbc” Python library.</p>
+                                                        <p><b>First Part: Scraping UCL Module Catalogue</b></p>
+                                                        <p>As the first step, it was necessary to gain insight into the extent to which UCL is able to deliver the key ideologies outlined in the <a href="https://sdgs.un.org/goals" target="_blank">2015 United Nations Sustainable Development Goals</a> (hereafter SDGs) through teaching. Hence, the UCL Module Catalogue was proposed as a data source for natural language processing and categorisation. Initially, the <a href="https://uclapi.com/docs/" target="_blank">UCL API</a> was used to comprise a unique module link. For example, the API provided module name - “Neurology and Neurosurgery - Basic” and module identification “CLNE0012”, which was then used to concatenate to form a final module link - https://www.ucl.ac.uk/module-catalogue/modules/neuromuscular-literature-review-CLNE0010. The data as such was stored in the <i>all_module_links.json</i> file for future use and can be updated by running the <i>initialise_files.py</i> file in the MODULE_CATALOGUE/INITIALISER directory. Consequently, that unique link was piped into the "BeautifulSoup" Python library to obtain a webpage html file data for all 5576 modules (at the time of conducting the project).</p>
+                                                            <br><img src="img/scrapingDiagram.png" alt="Prototype 1" class="personas"><br>
+                                                        <p>Object oriented programming allowed us for greater control of instantiation, encapsulation and abstraction of data mining scripts. Specifically, it was useful in abstraction of initialisation, specifically, obtaining all module-related and departmental metadata. Thus, by running <i>global_controller.py</i> one may instantiate all necessary files to proceed with the module-to-SDG mapping process. The following data points were obtained: module title, module ID, faculty, department, credit value, module lead name and description. Upon processing each one of those strings into cleaner form, the data was organised into a tuple and stored in a list and pushed to the ModuleData table in the MainDB database using “pyodbc” Python library.</p>
 
                                                     <br><br>
 
                                                     <h4>Processing Algorithms</h4>
-                                                    <p>It is worth noting that the processes described below formed a part in a back-up, alternative approach to SDG mapping. Due to an issue with large dataset annotation, it was agreed with our clients that this change was necessary for delivering an improvement into the current classification processes.</p>
-                                                    <br><br>
-                                                    <p><b>UCL Module Catalogue Matching</b></p>
-                                                        <br><img src="img/moduleMatch.png" alt="Module Match" class="personas"><br>
-                                                        <p>The following process illustrated below demonstrates the algorithm for matching UCL Module Catalogue to sustainable development goals provided in the <i>SDG_Keywords.csv</i> file. The processing file - <i>map.py</i> also pulls the data from ModuleData database table, which contains all data relating to a particular module, including its description, title, credit value, module lead name and so on. It uses that data to comprise a single string, which alongside a single keyword is piped into a pre-processing unit, which uses NLTK to lemmatise the given strings. Lastly, the algorithm checks whether or not that keyword is present in any text data in a particular module, if so, it stores it into the <i>matchedModulesSDG.json</i> file.</p>
-                                                    <br><br>
-                                                    <p><b>Scopus Matching</b></p>
-                                                        <br><img src="img/scopusMatch.png" alt="Scopus Match" class="personas"><br>
-                                                        <p>Diagram above illustrates a similar to the Module Catalogue to SDG Mapping, but this time it matches Scopus Research Publications to the sustainable development goals. The only difference is the type of data considered. Scopus provides more details about a particular publication, therefore, it allows for greater comparison and a more accurate matching. In this case, data points like abstract, title, author keywords, index keywords and subject area keywords are considered during string comparison. As a result, it generates the matchedScopusSDG.json file for further development.</p>
-                                                    <br><br>
-                                                    <p><b>Scopus Data Generation</b></p>
-                                                        <br><img src="img/scopusData.png" alt="Scopus Data Generation" class="personas"><br>
-                                                        <p>Diagram above illustrates the formation of the underlying dataset - common to all members of our client group. Therefore, the pybliometrics.py program carries out numerous tasks including reading individual research publication identifiers (DOIs) from the Research Publication Service (RPS) to act as a basis for the Scopus API request using the Python “requests” library</p>
-                                                    <br><br>
-                                                    <p><b>UCL Module Catalogue Keyword Extraction</b></p>
-                                                        <br><img src="img/moduleKeyword.png" alt="Module Keyword Extraction" class="personas"><br>
-                                                        <p>Unlike Scopus publication data, where most papers have assigned keywords, catalogue modules are unlabelled. Hence, in order to apply the Latent Dirichlet Allocation algorithm called GuidedLDA, it is necessary to extract keywords that are representative of that particular module. Diagram above shows the processing stages of the <i>access_module_data.py</i> script. Firstly, it uses a database written by previous scrips to organise module metadata, then concatenates any strings that will be used. NLTK is used to preprocess the text data, which is then piped into the Term Frequency–Inverse Document Frequency (TF-IDF) vectoriser to perform a numerical statistic which will indicate the significance of each word, essentially demonstrating how reflective that word is of a particular collection of text data. Consequently, top 5 were taken, excluding any that have a significance less than 0.001. The resulting keywords, alongside the module identifications string are written to the ModuleKeywords database table hosted in Microsoft Azure server. The module identification string is specified as a primary key for ease of data retrieval.</p>
+                                                        <p>It is worth noting that the processes described below formed a part in a back-up, alternative approach to SDG mapping. Due to an issue with large dataset annotation, it was agreed with our clients that this change was necessary for delivering an improvement into the current classification processes.</p>
+                                                        <br><br>
+                                                        <p><b>UCL Module Catalogue Matching</b></p>
+                                                            <br><img src="img/moduleMatch.png" alt="Module Match" class="personas"><br>
+                                                            <p>The following process illustrated below demonstrates the algorithm for matching UCL Module Catalogue to sustainable development goals provided in the <i>SDG_Keywords.csv</i> file. The processing file - <i>map.py</i> also pulls the data from ModuleData database table, which contains all data relating to a particular module, including its description, title, credit value, module lead name and so on. It uses that data to comprise a single string, which alongside a single keyword is piped into a pre-processing unit, which uses NLTK to lemmatise the given strings. Lastly, the algorithm checks whether or not that keyword is present in any text data in a particular module, if so, it stores it into the <i>matchedModulesSDG.json</i> file.</p>
+                                                        <br><br>
+                                                        <p><b>Scopus Matching</b></p>
+                                                            <br><img src="img/scopusMatch.png" alt="Scopus Match" class="personas"><br>
+                                                            <p>Diagram above illustrates a similar to the Module Catalogue to SDG Mapping, but this time it matches Scopus Research Publications to the sustainable development goals. The only difference is the type of data considered. Scopus provides more details about a particular publication, therefore, it allows for greater comparison and a more accurate matching. In this case, data points like abstract, title, author keywords, index keywords and subject area keywords are considered during string comparison. As a result, it generates the matchedScopusSDG.json file for further development.</p>
+                                                        <br><br>
+                                                        <p><b>Scopus Data Generation</b></p>
+                                                            <br><img src="img/scopusData.png" alt="Scopus Data Generation" class="personas"><br>
+                                                            <p>Diagram above illustrates the formation of the underlying dataset - common to all members of our client group. Therefore, the pybliometrics.py program carries out numerous tasks including reading individual research publication identifiers (DOIs) from the Research Publication Service (RPS) to act as a basis for the Scopus API request using the Python “requests” library</p>
+                                                        <br><br>
+                                                        <p><b>UCL Module Catalogue Keyword Extraction</b></p>
+                                                            <br><img src="img/moduleKeyword.png" alt="Module Keyword Extraction" class="personas"><br>
+                                                            <p>Unlike Scopus publication data, where most papers have assigned keywords, catalogue modules are unlabelled. Hence, in order to apply the Latent Dirichlet Allocation algorithm called GuidedLDA, it is necessary to extract keywords that are representative of that particular module. Diagram above shows the processing stages of the <i>access_module_data.py</i> script. Firstly, it uses a database written by previous scrips to organise module metadata, then concatenates any strings that will be used. NLTK is used to preprocess the text data, which is then piped into the Term Frequency–Inverse Document Frequency (TF-IDF) vectoriser to perform a numerical statistic which will indicate the significance of each word, essentially demonstrating how reflective that word is of a particular collection of text data. Consequently, top 5 were taken, excluding any that have a significance less than 0.001. The resulting keywords, alongside the module identifications string are written to the ModuleKeywords database table hosted in Microsoft Azure server. The module identification string is specified as a primary key for ease of data retrieval.</p>
 
                                                     <br><br>
 
@@ -494,12 +494,53 @@ http://www.templatemo.com/tm-508-power
                                                     <br><br>
 
                                                     <h4>NLTK – Natural Language Toolkit</h4>
-                                                    <ul class="ordered">
-                                                        <li><p>The NLTK – Natural Language Toolkit has advantages over PyTorch, making the code much more condense, manageable, and ease of implementation for NLP.</p></li>
-                                                        <li><p>NLTK feature include tokenization, named-entity recognition, text classification, text tagging and RAKE – Rapid Automatic Keyword Extraction which is used for mapping keywords to UCL modules listed in the module catalogue.</p></li>
-                                                    </ul>
+                                                        <ul class="ordered">
+                                                            <li><p>The NLTK – Natural Language Toolkit has advantages over PyTorch, making the code much more condense, manageable, and ease of implementation for NLP.</p></li>
+                                                            <li><p>NLTK feature include tokenization, named-entity recognition, text classification, text tagging and RAKE – Rapid Automatic Keyword Extraction which is used for mapping keywords to UCL modules listed in the module catalogue.</p></li>
+                                                        </ul>
 
                                                     <br><br>
+
+                                                    <h4>Django Search Engine Web Application</h4>
+                                                        <p>As part of one of the client requirements, we are to interface the data gathered onto a web application. Although many alternatives exist, Django stands out as a best-suited solution for the task at hand. Below one may find an overview desired and the basic functionality the web application provides:</p>
+                                                        <br><img src="img/overview.png" alt="Django landing page overview" class="personas"><br>
+                                                        <p>Since all the data scraped is stored in the Azure SQL Server, it is necessary to migrate the data into the Django SQLite database. Hence, we start by defining a model for the module data:</p>
+                                                        <ul class="ordered">
+                                                            <li><p>Department_Name = models.CharField(max_length=200)</p></li>
+                                                            <li><p>Department_ID = models.CharField(max_length=100)</p></li>
+                                                            <li><p>Module_Name = models.CharField(max_length=200)</p></li>
+                                                            <li><p>Module_ID = models.CharField(max_length=100)</p></li>
+                                                            <li><p>Faculty = models.CharField(max_length=200)</p></li>
+                                                            <li><p>Credit_Value = models.IntegerField(default=0)</p></li>
+                                                            <li><p>Module_Lead = models.CharField(max_length=100, null=True, blank=True)</p></li>
+                                                            <li><p>Catalogue_Link = models.CharField(max_length=200)</p></li>
+                                                            <li><p>Description = models.CharField(max_length=1000, null=True, blank=True)</p></li>
+                                                            <li><p>Last_Updated = models.DateTimeField</p></li>
+                                                        </ul>
+                                                        <p>This creates the fields that match the MySQL data type fields:</p>
+                                                        <p>
+                                                            CREATE TABLE ModuleData (
+                                                                <p style="margin-left:50px">Department_Name      VARCHAR(150),</p>
+                                                                <p style="margin-left:50px">Department_ID        VARCHAR(150),</p>
+                                                                <p style="margin-left:50px">Module_Name          VARCHAR(150),</p>
+                                                                <p style="margin-left:50px">Module_ID            VARCHAR(150) PRIMARY KEY,</p>
+                                                                <p style="margin-left:50px">Faculty              VARCHAR(100),</p>
+                                                                <p style="margin-left:50px">Credit_Value         FLOAT,</p>
+                                                                <p style="margin-left:50px">Module_Lead          VARCHAR(100),</p>
+                                                                <p style="margin-left:50px">Catalogue_Link       VARCHAR(MAX),</p>
+                                                                <p style="margin-left:50px">Description          VARCHAR(MAX),</p>
+                                                                <p style="margin-left:50px">Last_Updated         DATETIME DEFAULT CURRENT_TIMESTAMP</p>
+                                                            <p>);</p>
+                                                        </p>
+                                                        <p>Upon its creation, a Django views.py is used to gather the objects, and pressing the “Reload Data” button makes a query to the Azure SQL tables to copy over the data and populate the Django objects (unless they already exist in the records). A similar process occurs for the research publications scraped from Scopus platform. Next step involves creation of the index.html, module.html and publication.html for the Django class-based views, allowing a creation of dynamic details page display without creation of an HTML page for each object specifically.</p>
+                                                        <p><b>Publication Detailed View Page</b></p>
+                                                        <br><img src="img/publicationDetailsPage.png" alt="Django detailed publication page" class="personas"><br>
+                                                        <p><b>Publication Detailed View Page</b></p>
+                                                        <br><img src="img/moduleDetailsPage.png" alt="Django detailed module page" class="personas"><br>
+                                                        <p>The next step is to implement the most important aspect - search. In the case of two sources of data, we include a checkbox for selecting either source or both sources. We still use the Django views.py to create a function to perform the search across all data fields (any text-format piece of data). Upon running the search, Django utilises filtering function to produce a dictionary of objects that match the criteria and are then passed onto the index.html, where embedded Python code deals with display manner and style. Subsequently, we produce the following product:</p>
+                                                        <br><img src="img/djangoResultsView.png" alt="Django results view" class="personas"><br>
+                                                    <br><br>
+
                                                     <h4>References</h4>
                                                         <p>[1] 2020. Keyword-Based Topic Modeling And Keyword Selection. [ebook] Evanston, Illinois: Northwestern University. Available at: https://arxiv.org/pdf/2001.07866.pdf [Accessed 10 December 2020].</p>
                                                         <p>[2] Lagus, K. and Kaski, S., 2020. Keyword Selection Method For Characterising Text Document Maps. [online] Helsinki, Finland: Helsinki University of Technology, Neural Networks Research Center. Available at: https://users.ics.aalto.fi/krista/papers/lagus99icann.pdf [Accessed 10 December 2020].</p>
