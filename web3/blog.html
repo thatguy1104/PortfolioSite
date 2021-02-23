@@ -164,6 +164,13 @@ http://www.templatemo.com/tm-508-power
                                         <li><i class="fa fa-calendar"></i>16 February 2021</li>
                                     </ul>
                                 </a></li>
+                                <li><a href="#tab19">
+                                    Week 19: Django Continuation & Changes to GuidedLDA-->LDA
+                                    <ul class="info-post">
+                                        <li><i class="fa fa-user"></i>Albert</li>
+                                        <li><i class="fa fa-calendar"></i>23 February 2021</li>
+                                    </ul>
+                                </a></li>
                             </ul>
                         </div>
 
@@ -299,7 +306,7 @@ http://www.templatemo.com/tm-508-power
                                             <li><i class="fa fa-user"></i>Albert</li>
                                             <li><i class="fa fa-calendar"></i>5 January 2021</li>
                                         </ul>
-                                        <p>During the second week of holidays we have continued our work on Scopus data scraper. I have finally figured out the long-lasting issue - data access through the API. Previously, there has been a restriction placed, which was solved by using UCL VPN to access data points like an abstract, author identifiers as well as data on the author's affiliation. This allowed construction of a clean JSON format file for each of the research publications. So far, as a demo version, I have put together ~1300 such files. It allowed us to focus on feeding that abstract data into the SVM model. We plan to continue cleaning up that data and to get started on SDG -> UCL Module Catalogue classification.</p>
+                                        <p>During the second week of the holidays we have continued our work on the Scopus data scraper. I have finally figured out the long-lasting issue - data access through the API. Previously, there has been a restriction placed, which was solved by using UCL VPN to access data points like an abstract, author identifiers as well as data on the author's affiliation. This allowed the construction of a clean JSON format file for each of the research publications. So far, as a demo version, I have put together ~1300 such files. It allowed us to focus on feeding that abstract data into the SVM model. We plan to continue cleaning up that data and to get started on SDG -> UCL Module Catalogue classification.</p>
                                     </div>
                                 </div>
                                 <div id="tab13">
@@ -366,6 +373,17 @@ http://www.templatemo.com/tm-508-power
                                             <li><i class="fa fa-calendar"></i>16 February 2021</li>
                                         </ul>
                                         <p>Upon our meeting with Neel and Simon to catch up on our progress, I have immediately started the development of the Django Search Engine Web Application. It will interface the back-end data and provide extensive search functionality and detailed view for both modules and publications. In the meantime, our group has finally implemented the GuidedLDA algorithm for our data, however, the results are not perfect and need to be tuned. Hence, four solutions were proposed, including using Tf-IDF Vectoriser, including stop-words to prevent detection of unnecessary keywords (such as "module" or "student") and finally, using modules that have a direct string-matched mapping, to prevent redundant processing and reduce GuidedLDA skewing.</p>
+                                    </div>
+                                </div>
+                                <div id="tab19">
+                                    <img src="img/blog-post-5.jpg" alt="">
+                                    <div class="text-content">
+                                        <h4>Week 19: Django Continuation & Changes to GuidedLDA-->LDA</h4>
+                                        <ul class="info-post">
+                                            <li><i class="fa fa-user"></i>Albert</li>
+                                            <li><i class="fa fa-calendar"></i>23 February 2021</li>
+                                        </ul>
+                                        <p>At this moment, the Django web-application is complete. Our team is having a meeting today to get a final stamp of approval from Neel to signify the completion of his specific requirement to the project. On a different note, the team has progressed immensely with the GuidedLDA optimisation. However, it has become clear that LDA should be used and has proved to produce more valuable results. Hence, we are now able to assign each UCL module to a UN Sustainable Development Goal, as well as demonstrate potential relevance/overlap with other goals. The next step includes further testing of the model. Moreover, Marilyn has requested a similar model testing using keywords relating to Digital Health and Engineering. If the model proves insightful, we shall apply it to this area too.</p>
                                     </div>
                                 </div>
                             </div>
