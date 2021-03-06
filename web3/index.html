@@ -229,19 +229,19 @@ http://www.templatemo.com/tm-508-power
                                             <div class="col-md-12">
                                                 <div class="left-text">
                                                     <h4>Project Background & Client Introduction</h4>
-                                                    <p>Our project came about due to a growing need within UCL, centred around the research facility in which their research administration, namely finding various things based on their topic of research such as names and other key terms. This search was taking longer and longer each year due to the increasing number of articles, papers and other publications on each topic coming out each year. This got us connected to various researchers varying from professors, PhD research students and sustainable development researchers. They all required a method to speed up this process and to help get more accurate data automatically rather than repeating this each year manually.</p>
-                                                    <br><br>
-                                                    <p>You may find the client's details below:</p>
-                                                    <ul class="ordered">
-                                                        <li><p>Neel Desai - neel.desai.13@ucl.ac.uk</p></li>
-                                                        <li><p>Marilyn Aviles - marilyn.aviles@ucl.ac.uk</p></li>
-                                                        <li><p>Prof Ann Blandford - ann.blandford@ucl.ac.uk</p></li>
-                                                        <li><p>Dr. Simon Knowles - s.knowles@ucl.ac.uk</p></li>
-                                                    </ul>
+                                                        <p>Our project came about due to a growing need within UCL, centred around the research facility in which their research administration, namely finding various things based on their topic of research such as names and other key terms. This search was taking longer and longer each year due to the increasing number of articles, papers and other publications on each topic coming out each year. This got us connected to various researchers varying from professors, PhD research students and sustainable development researchers. They all required a method to speed up this process and to help get more accurate data automatically rather than repeating this each year manually.</p>
+                                                        <br><br>
+                                                        <p>You may find the client's details below:</p>
+                                                        <ul class="ordered">
+                                                            <li><p>Neel Desai - neel.desai.13@ucl.ac.uk</p></li>
+                                                            <li><p>Marilyn Aviles - marilyn.aviles@ucl.ac.uk</p></li>
+                                                            <li><p>Prof Ann Blandford - ann.blandford@ucl.ac.uk</p></li>
+                                                            <li><p>Dr. Simon Knowles - s.knowles@ucl.ac.uk</p></li>
+                                                        </ul>
                                                     <br><br>
 
                                                     <h4>Project Goals</h4>
-                                                    <p>Our main project goals include trying to achieve a way for all researchers to be able to find and contact other researchers that are working on or have worked on the same field of study as them. The project goals also include trying to ensure that the RPS database can be scraped in order to find all papers that are linked to the search field used that can then be used to find all related researchers.</p>
+                                                        <p>Our main project goals include trying to achieve a way for all researchers to be able to find and contact other researchers that are working on or have worked on the same field of study as them. The project goals also include trying to ensure that the RPS database can be scraped in order to find all papers that are linked to the search field used that can then be used to find all related researchers.</p>
 
                                                     <br><br>
                                                     
@@ -308,7 +308,6 @@ http://www.templatemo.com/tm-508-power
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="right-image">
-                                                    <!-- <img src="img/right-side-image_1.jpg" alt=""> -->
                                                 </div>
                                             </div>
                                         </div>
@@ -424,6 +423,10 @@ http://www.templatemo.com/tm-508-power
                                                             <li><p>The user would send requests to the database via a search tool that would use keywords of the user’s choice that would be used as the basis of their search. This request is sent to the azure database where it then sends a request to the information database (such as RPS) and this would provide the full scale of information and data that it contains. This information is used by our algorithm to scrape and sort through the information based on the user’s request. Once it has the required, sorted information, it is then sent back to the user in a form that can be easily visualised.</p></li>
                                                         </ul>
                                                     <br><br>
+                                                    <h4>Class Diagram</h4>
+                                                        <img src="img/uml.png" alt="Server Communication Diagram" class="personas">
+                                                    <h4>Django Design</h4>
+                                                        <img src="img/django_diagram.png" alt="Server Communication Diagram" class="personas"><br>
                                                 </div>
                                             </div>
                                         </div>
@@ -560,15 +563,46 @@ http://www.templatemo.com/tm-508-power
                                 <div id="photo">
                                     <div class="row">
                                         <div class="tab-content-services">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="left-text">
-                                                    <h4>Testing</h4>
-                                                    <p>La croix kombucha bespoke dreamcatcher, tumeric tbh quinoa microdosing gastro pub. 8-bit freegan chartreuse synth jean shorts farm-to-table, cold-pressed authen tic. Mixtape hella beard meditation, organic polaroid waistcoat humblebrag taxider my tumblr. Hexagon kinfolk chartreuse shoreditch. <br><br>Pour-over hammock intelligentsia hashtag air plant distillery. Sustainable selvage hashtag, +1 messenger bag pop-up banh mi jianbing art party roof party try-hard retro small batch. Kogi fanny pack raclette mustache, pok pok jean shorts +1 tote bag keffiyeh. Post-ironic af master polaroid.</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="right-image">
-                                                    <img src="img/right-side-image_5.jpg" alt="">
+                                                    <h4>Testing Strategy</h4>
+                                                        <p>The strategy of testing the validation of our model training results is to use a combination of mathematical concepts from machine learning:</p>
+                                                        <ul class="ordered">
+                                                            <li><p>Cosine similarity</p></li>
+                                                            <li><p>Squashing function</p></li>
+                                                        </ul>
+                                                        <p>Cosine similarity is used to compare the angle between vectors A,B∈<math>R<sub>+</sub><sup>n</sup></math>, where in our case n=18 and each component a<sub>i</sub>∈A for i=1,2,…,18 is the probability the model predicted for how much a document is related to SDG i and each component b<sub>i</sub>∈B for i=1,2,…,18 is the ratio of keyword counts for SDG i. From these assumptions, two properties hold:</p>
+                                                        <ul class="ordered">
+                                                            <li><p>‖A‖=1 and ‖B‖=1</p></li>
+                                                            <li><p>
+                                                            <math>A,B∈R<sub>+</sub><sup>n</sup>  ⟹ ∀a<sub>i</sub>∀b<sub>i</sub>(a<sub>i</sub>≥0)∧(b<sub>i</sub>i≥0) ⟹ ∑<sub>i=1</sub><sup>n</sup>a<sub>i</sub>b<sub>i</sub>≥0 ⟹ 〈A,B〉≥0</math></p></li>
+                                                        </ul>
+                                                        <br><img src="img/cosine_images.png" alt="Cosine image" class="personas" style="width: 50%; height: 230px;"><br>
+                                                        <p>From these properties we can deduce that: <math>cos(θ<sub>A,B</sub>) = A∙B and 0 ≤ cos(θ<sub>A,B</sub>) ≤ 1</math></p>
+                                                        <p>A squashing function f:X→Y is a bijective function where X=<math>R<sup>+</sup></math> and Y=[0,1] maps any input x in <math>R<sup>+</sup></math> to f(x) in the range [0,1]. In our case, x is the number of keyword occurrences and if f(x) is close to 1 then it gives a greater belief for the similarity of 2 vectors whereas if f(x) is close to 0 then it is unlikely that 2 vectors are similar, since the count will be very low.</p>
+                                                        <p>f:<math>R<sup>+</sup></math>→[0,1] exists s.t. f(x)=1/2(tanh(ax-b)+1) where a,b are scalable constants.</p>
+                                                        <br><img src="img/tanh.png" alt="Sigmoid Function" class="personas" style="width: 50%; height: 230px;"><br>
+                                                        <p>The similarity is computed as <math>Sim(A,B) = cos(θ<sub>A,B</sub>)∙f(x)</math> which also has range [0,1].</p>
+                                                        <p>Other testing strategies not explicitly related to machine learning are using assert statements throughout the code which are the condition or Boolean expression which should always be true in any instance of running the code. Failing an assert inside a function means the function was incorrectly called or the data passed to it is incorrect. For example, when using our model to make a prediction on the DOI of a research paper, we have an assert that the length of the dataframe is equal to 1, otherwise if the length is 0 then an invalid DOI was provided.</p>
+                                                    <br><br>
+                                                    <h4>Performance & Stress Testing</h4>
+                                                        <p></p>
+                                                    <br><br>
+                                                    <h4>User acceptance testing: Feedback From Testers & Project Partners</h4>
+                                                        <p><b>Neel Desai</b></p>
+                                                            <p>The project partners feedback upon trying out our project product was positive. This is a novel tool that utilises a machine learning model to gather a clear picture of UCL’s modules and publications, specifically, analysing and visualising the extent to which the institution is able to deliver UN’s Sustainable Development Goals (SDGs) ideologies through teaching and research. For Neel’s requirements, we achieved to cover all functionalities requested, with which he was pleased. Moreover, his additional request for including export functionality was quickly implemented. The final demonstration reveals that the solution works for the user, providing appropriate output, with minimum loading time of the Django interface. The application has proved itself as easy to navigate. Furthermore, the web-app provides error messaged when trying to export empty fields (when search resolves no matches for instance), allowing the user to understand and recover from this error without losing search input and current checkboxes’ state.</p>
+                                                            <p>With regards to another user group that aims to understand and view SDG mappings, a second page of the Django web-app was developed. The team conducted numerous meetings to test the application with the user, to gain insight on whether or not the data displayed is useful and the site is usable. The webpage provides multiple functionalities that had to be individually tested with the user present, to ensure that one is able to recover from accidental input. Consequently, software tested revealed that it is able to handle required tasks in accordance with the specifications and design requirements.</p>
+                                                        <br>
+                                                        <p><b>Simon Knowles</b></p>
+                                                            <p>The feedback given to us by our client, Simon Knowles and project partner, Richard Allen from our original prototype demonstration emphasised on validating the model training results by comparing those results with SDG keyword string matching counts as an alternative method for mapping modules to SDGs. Furthermore, our clients wanted more data and visualisation describing a “bigger picture” of the mapping from UCL modules to SDGs. One of their requests was a bubble map diagram where each bubble represents an SDG, whose area is proportional to the number of students being taught about that particular SDG. In regard to this feedback, we were given a spreadsheet of the number of students against module reference numbers (e.g. FREN0074) so that we were able to produce the appropriate diagram:</p>
+                                                            <br><img src="" alt="Bubble results" class="personas"><br>
+                                                            <p>In addition, we extended the UI to give a visual representation of the validation process, which was comparing the similarity of the results obtained by our model to those obtained using a simple keyword string matching algorithm. Further filtering options were added to filter the table by comparing the similarity of modules to the values input by the user:</p>
+                                                            <br><img src="" alt="Module colour status" class="personas"><br>
+                                                        <br>
+                                                    <br><br>
+                                                    <h4>Why This Test, Which Tool, How The Test Was Conducted, Results & Analysis</h4>
+                                                        <p>One of the issues encountered when gathering data from Scopus using pybibliometrics - an API wrapper was invalid DOIs. Our team was provided with a UCL Research Publications Service extract, containing a list of unique publication identifiers. However, not all exist in Scopus records. Hence, the script would either crash when encountering a non-existent DOI or would identify a paper as invalid due to other errors. Hence, it was necessary to test whether the error raised was purely due to invalidity of the DOI.</p>
+                                                        <p>The tool we picked was Postman - a software tool for API call testing. The test was conducted on a semi-manual basis. More specifically, upon monitoring the log files, which report both successful API package admission and failed ones, we would validate suspicious DOIs in Postman, which eliminates the need to have a development environment and isolating the API call.</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -577,15 +611,212 @@ http://www.templatemo.com/tm-508-power
                                 <div id="oke">
                                     <div class="row">
                                         <div class="tab-content-services">
-                                            <div class="col-md-6">
+                                            <div class="col-md-12">
                                                 <div class="left-text">
-                                                    <h4>Evaluation</h4>
-                                                    <p>La croix kombucha bespoke dreamcatcher, tumeric tbh quinoa microdosing gastro pub. 8-bit freegan chartreuse synth jean shorts farm-to-table, cold-pressed authen tic. Mixtape hella beard meditation, organic polaroid waistcoat humblebrag taxider my tumblr. Hexagon kinfolk chartreuse shoreditch. <br><br>Pour-over hammock intelligentsia hashtag air plant distillery. Sustainable selvage hashtag, +1 messenger bag pop-up banh mi jianbing art party roof party try-hard retro small batch. Kogi fanny pack raclette mustache, pok pok jean shorts +1 tote bag keffiyeh. Post-ironic af master polaroid.</p>
-                                                </div>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <div class="right-image">
-                                                    <img src="img/right-side-image_5.jpg" alt="">
+                                                    <h4>Summary of Achievements</h4>
+                                                        <p><b>Achievement Table</b></p>
+                                                            <p></p>
+                                                            <table class="table table-striped table-hover" style="border: 1px solid black;">
+                                                                <thead>
+                                                                    <th scope="col">ID</th>
+                                                                    <th scope="col">Requirements</th>
+                                                                    <th scope="col">Priority</th>
+                                                                    <th scope="col">State</th>
+                                                                    <th scope="col">Contributors</th>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>Data Scraping (RPS, Scopus, UCL Module Catalogue, SDGs)</td>
+                                                                        <td>Must</td>
+                                                                        <td>✓</td>
+                                                                        <td>Albert</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>2</td>
+                                                                        <td>Merged SDG keyword set</td>
+                                                                        <td>Must</td>
+                                                                        <td>✓</td>
+                                                                        <td>Kareem</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>3</td>
+                                                                        <td>Validation of GuidedLDA Model Training Result</td>
+                                                                        <td>Must</td>
+                                                                        <td>✓</td>
+                                                                        <td>Kareem</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>4</td>
+                                                                        <td>Data Visualisation (Tableau, Bubble Chart, List, CSV, JSON, Django)</td>
+                                                                        <td>Must</td>
+                                                                        <td>✓</td>
+                                                                        <td>Kareem, Albert</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>5</td>
+                                                                        <td>Profile pages for each researcher</td>
+                                                                        <td>Could</td>
+                                                                        <td>✖</td>
+                                                                        <td>All</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2">Key Functionalities (Must have and Should have)</td>
+                                                                        <td colspan="3"><b>100%</b> completed</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td colspan="2">Optional Functionalities (Could have)</td>
+                                                                        <td colspan="3"><b>50%</b> completed</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        <br>
+                                                        <p><b>A List of Known Bugs</b></p>
+                                                            <p></p>
+                                                            <table class="table table-striped table-hover" style="border: 1px solid black;">
+                                                                <thead>
+                                                                    <th scope="col">ID</th>
+                                                                    <th scope="col">Bug Description</th>
+                                                                    <th scope="col">Priority</th>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>1</td>
+                                                                        <td>Scraping error identified as an invalid DOI. Error raised was not due to an attempt to pull a research publication that does not exist in Scopus records but rather due to inability to control request rate and request count, given that the API sets weekly quotas. Hence, the code would seem as if it is performing well, however, it may just make a call to a wrongly formatted DOI string or the key may have exceeded the allocated quota limit.</td>
+                                                                        <td>High</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                        <br>
+                                                        <p><b>Individual Contribution Distribution Table</b></p>
+                                                            <p></p>
+                                                            <table class="table table-striped table-hover" style="border: 1px solid black;">
+                                                                <thead>
+                                                                    <th scope="col">Work Packages</th>
+                                                                    <th scope="col">Varun</th>
+                                                                    <th scope="col">Kareem</th>
+                                                                    <th scope="col">Albert</th>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td>Project Website Report Documentation</td>
+                                                                        <td>33%</td>
+                                                                        <td>33%</td>
+                                                                        <td>34%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Project Blog</td>
+                                                                        <td>0%</td>
+                                                                        <td>10%</td>
+                                                                        <td>90%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Video Editing</td>
+                                                                        <td>33%</td>
+                                                                        <td>33%</td>
+                                                                        <td>33%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Problem Research</td>
+                                                                        <td>33%</td>
+                                                                        <td>34%</td>
+                                                                        <td>33%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>NLP Experiments</td>
+                                                                        <td>0%</td>
+                                                                        <td>90%</td>
+                                                                        <td>10%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>NLP / Machine Learning code</td>
+                                                                        <td>0%</td>
+                                                                        <td>100%</td>
+                                                                        <td>0%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Scraping Scripts Code</td>
+                                                                        <td>0%</td>
+                                                                        <td>0%</td>
+                                                                        <td>100%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Django Web Application / UI Development</td>
+                                                                        <td>0%</td>
+                                                                        <td>5%</td>
+                                                                        <td>95%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Project Deployment</td>
+                                                                        <td>95%</td>
+                                                                        <td>0%</td>
+                                                                        <td>5%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Client Communication</td>
+                                                                        <td>34%</td>
+                                                                        <td>33%</td>
+                                                                        <td>33%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Requirement Gathering</td>
+                                                                        <td>40%</td>
+                                                                        <td>30%</td>
+                                                                        <td>30%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Team Communication</td>
+                                                                        <td>33%</td>
+                                                                        <td>33%</td>
+                                                                        <td>34%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Overall contribution</td>
+                                                                        <td>31%</td>
+                                                                        <td>33%</td>
+                                                                        <td>36%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Main Roles</td>
+                                                                        <td>Database Deployer, Researcher, Team Liaison</td>
+                                                                        <td>Back End Developer, NLP / Machine Learning Development, Researcher.</td>
+                                                                        <td>Project Website Manager, Back End Developer, Front End Developer</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                    <br><br>
+                                                    <h4>Critical Evaluation of the Project</h4>
+                                                        <p><b>User Interface & User Experience</b></p>
+                                                            <p>Django web application was a surprising addition to our requirements, due to a demand to interface the back-end data and provide extensive search functionality and detailed view for both modules and publications. It is a necessary addition to our requirements, as it would benefit other clients to perform searches and potentially other users of the platform. The web interface provides notable value to the project, proving itself as the most suitable approach to separating the concerns of each program, dealing with specific client requirements and considering the user’s goals. The interface provides a technical challenge with regards to fast performance. The choice for the Django framework is justified in its leverage of function-based view by composing a model (an abstracted version of SQL table creation) and its wrapper for interacting with the SQLite database. It allows for sophisticated “Q” object filtering, essentially performing a fast search on all fields of the object and effectively coordinating its display due to Model View Controller design architecture.</p>
+                                                            <p>With regards to user experience, it was necessary to retain user-centred development, to make the application usable, easy to learn and ensure that in case of error, the user can understand and recover from unintentional input or navigation. To achieve the aforementioned, we conducted regular update meetings with individuals who classify as potential user group (in this case these were UCL undergraduate students). Moreover, as confirmation that the interface is appropriate and provides valuable insight into the data scraped, we conducted client meetings as confirmation of our progress. All in all, Django’s advantageous qualities progressively improved our project’s progression towards achieving client requirements and its purpose. Despite the potential to improve the visual aspect of the webpages, rigorous user acceptance testing has demonstrated immense value in data visualisation and the ability to perform search operations across all the scraped data.</p>
+                                                        <br>
+                                                        <p><b>Functionality</b></p>
+                                                            <p>The scraping of data from the UCL module catalogue and Scopus research publications work well and get the required information in JSON format except that certain faculties such as Law are not included in the UCL API, thus we are unable to scrape any modules from such faculties. However, we believe this limitation to be okay, since using the UCL API eases the scraping of modules across the entirety of UCL.</p>
+                                                            <p>The NLP scripts used to pre-process text from the UCL module catalogue description and the abstract from Scopus research publications achieve the goals of normalization, lemmatization and stopword removal. We avoid stemming the tokens, in our case, since it makes the tokens less understandable when trying to validate the topic-word distribution at the end of training the model. For stopword removal, we provide additional stopwords that were compiled from examining the UCL module catalogue. For example, {lecturer, coursework, class} is a subset of these additional stopwords. Most of these words don’t provide any additional information related to the SDG topic-word distribution, however certain words like “class” are contained within the SDG keywords csv file but “class” (for SDG 1: No Poverty) has a different semantic meaning in the module catalogue dataset to that from within the SDG keywords csv file. Thus, it is important that we include “class” in the stopwords list to avoid confusing model training and skewing the results towards SDG 1 (since we assume words have no semantic meaning associated with them).</p>
+                                                            <p>However, our NLP script does perform the required functionality of classifying and mapping UCL modules to SDGs, with validation as described in the Testing section of the report, even though we lose small pieces of information by removing stopwords and making the necessary semantic meaning assumptions that greatly simplify the model design.</p>
+                                                        <br>
+                                                        <p><b>Stability</b></p>
+                                                            <p>It was vital to develop scraping scripts that are error-prone and can rapidly recover from an error. Specifically, disruption of network connection or internal error causes data loss, as in some scripts particularly, the data is loaded in n-sized chunks. Hence, if the error occurs towards the limit of the chunk, a large amount of data ends up lost. Ergo, the scrips implemented recovery mechanisms for avoiding situations of null values, invalid API requests. Moreover, the most challenging aspect of that design is adapting the script to deal with varying HTML page data for querying module data from the UCL module catalogue website. The fields of description may often be located at different tag positions, and in some cases is missing. Hence, a multi-layer checking procedure was introduced to deal with the aforementioned inconsistencies, enforcing the overall system’s performance stability.</p>
+                                                        <br>
+                                                        <p><b>Efficiency</b></p>
+                                                            <p>Efficiency was key in the design of web-scrapers. It is a lengthy and computationally heavy process, considering that there is large amounts of string processing, as well as the organisation of data into an appropriate data structure and its storage. Hence, it was vital to program in a way that would involve the least amount of rewriting data and choosing data structures wisely. Specifically, the use of dictionaries (or hash-maps) allowed for fast O(1) access for cases of Scopus data, where a lot of metadata has to be accessed immediately for Django SQLite model synchronisation.</p>
+                                                            <p>For our implementation of the guided LDA model, we use the LdaMulticore module in gensim. LdaMulticore is an optimized implementation of the LDA algorithm, able to harness the power of multicore CPUs to parallelize and speed up model training. The optimal number of workers, w=<i>cpu_count-1</i> where <i>cpu_count</i> is the number of real CPU cores (not hyperthreads) on the computer the model is trained on. For theoretical reasons, this value achieves optimal performance. The LDA training in gensim conceptually consists of Expectation-Maximization, which is an iterative method to find (local) maximum likelihood estimates of LDA parameters, with alternating E-steps and M-steps. The E-step performs inference on a chunk of documents using a Kalman filter. The statistics collected in the E-step are accumulated and used to update the model in M-step. To improve performance of the EM algorithm, the E-step is distributed to several workers as part of the LdaMulticore implementation. In comparison with LdaModel which is single-core and needs to be trained overnight, LdaMulticore speeds up the training process to less than an hour on a 2.6 GHz Intel Core i7 processor with 6 CPU cores (5 workers).</p>
+                                                            <p>For the NLP pre-processing scripts, which are responsible for converting the text to lowercase, removing words which are less than 3 characters and lemmatization, the time complexity is linear with the length of the text, O(<i>n</i>) in the average case. Furthermore, stopword removal which is done by the TfidfVectorizer class takes O(<i>n⋅m</i>) time, where n is the length of the text and m is the length of the stopwords list. The computational time complexity of TF-IDF is O(<i>nL⋅log(nL)</i>) where n is the total number of sequences in the dataset and <i>L</i> is the average length of sequences in the dataset.</p>
+                                                        <br>
+                                                        <p><b>Compatibility</b></p>
+                                                            <p>One of the services our project delivers is a web application, purposed to share the data mining engine with the public. Ergo, the application is compatible with all devices with access to a browser and an internet connection. However, if one considers management, compatibility becomes a more complex issue. Firstly, the compatibility of the deployment environment is vital to consider. A platform such as python-anywhere is not compatible with our project, due to the presence of external call to the Microsoft SQL Server on Azure, which is not permitted. Moreover, the deployment environment needs to be configured to handle a large number of static files generated from Scopus scraping. However, assuming the application is deployed, the interfaced aspect of the web application is universally accessible to the general public. Thus, it is fair to conclude that compatibility is not a significant concern.</p>
+                                                        <br>
+                                                        <p><b>Maintainability</b></p>
+                                                            <p>This is very much maintainable as our scraper can scrape from an updated version of the same data source and extract the new data that would then be added to the current data. This data can also be processed the same way each year as it would be in the same format. Furthermore, if any of the previous data points are changed or edited in any sort of way, these would also be updated, since our scraper looks at the entire database each time. This can also be used on other data sources, without large modifications, which means that the product can be changed based on future needs and requirements from other uses.</p>
+                                                        <br>
+                                                        <p><b>Project Management</b></p>
+                                                            <p>The team saw management has a high priority from day one of this project, ensuring that our environment, tasks and guidelines were set up immediately through several prompt meetings. We agreed on a standard form of communication (a combination of Microsoft Teams and e-mail). We have used Microsoft Teams regularly to keep a constant log of all messages, as well as to share essential files within our group. It also allowed for scheduled meetings to increase productivity as we were always aware of deadlines and milestones.</p>
+                                                            <p>We further have been using a shared GitHub repository to easily share and make changes to our code that could be viewed by our clients. This allowed us to document any change and to easily change features or develop different ones separately.</p>
+                                                            <p>We have had a blog to document our progress over several months which means that we have a steady record of our ideas and developments and could aid in a repeat of this project outlining key areas.</p>
+                                                    <br><br>
+                                                    <h4>Future work</h4>
+                                                        <p><b>How could the project be extended?</b></p>
+                                                            <p></p>
                                                 </div>
                                             </div>
                                         </div>
