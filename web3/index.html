@@ -571,14 +571,14 @@ http://www.templatemo.com/tm-508-power
                                                             <li><p>Cosine similarity</p></li>
                                                             <li><p>Squashing function</p></li>
                                                         </ul>
-                                                        <p>Cosine similarity is used to compare the angle between vectors A,B∈<math>R<sub>+</sub><sup>n</sup></math>, where in our case n=18 and each component a<sub>i</sub>∈A for i=1,2,…,18 is the probability the model predicted for how much a document is related to SDG i and each component b<sub>i</sub>∈B for i=1,2,…,18 is the ratio of keyword counts for SDG i. From these assumptions, two properties hold:</p>
+                                                        <p>Cosine similarity is used to compare the angle between vectors A,B∈<math>R<sub>+</sub><sup>n</sup></math>, where in our case n= 1 8 and each component a<sub>i</sub>∈A for i=1,2,…,18 is the probability the model predicted for how much a document is related to SDG i and each component b<sub>i</sub>∈B for i=1,2,…,18 is the ratio of keyword counts for SDG i. From these assumptions, two properties hold:</p>
                                                         <ul class="ordered">
                                                             <li><p>‖A‖=1 and ‖B‖=1</p></li>
                                                             <li><p>
-                                                            <math>A,B∈R<sub>+</sub><sup>n</sup>  ⟹ ∀a<sub>i</sub>∀b<sub>i</sub>(a<sub>i</sub>≥0)∧(b<sub>i</sub>i≥0) ⟹ ∑<sub>i=1</sub><sup>n</sup>a<sub>i</sub>b<sub>i</sub>≥0 ⟹ 〈A,B〉≥0</math></p></li>
+                                                            <math>A,B∈R<sub>+</sub><sup>n</sup>  ⟹ ∀a<sub>i</sub>∀b<sub>i</sub>(a<sub>i</sub> ≥ 0)∧(b<sub>i</sub>i ≥ 0) ⟹ ∑<sub>i=1</sub><sup>n</sup>a<sub>i</sub>b<sub>i</sub> ≥ 0 ⟹ 〈A,B〉 ≥ 0 ⟹ 〈A,B〉/‖A‖‖B‖ ≥ 0 ⟹ cos(θ<sub>A,B</sub>) ≥ 0</math></p></li>
                                                         </ul>
                                                         <br><img src="img/cosine_images.png" alt="Cosine image" class="personas" style="width: 50%; height: 230px;"><br>
-                                                        <p>From these properties we can deduce that: <math>cos(θ<sub>A,B</sub>) = A∙B and 0 ≤ cos(θ<sub>A,B</sub>) ≤ 1</math></p>
+                                                        <p>From these properties we can deduce that: <math>cos(θ<sub>A,B</sub>) =〈A,B〉/‖A‖‖B‖</math></p>
                                                         <p>A squashing function f:X→Y is a bijective function where X=<math>R<sup>+</sup></math> and Y=[0,1] maps any input x in <math>R<sup>+</sup></math> to f(x) in the range [0,1]. In our case, x is the number of keyword occurrences and if f(x) is close to 1 then it gives a greater belief for the similarity of 2 vectors whereas if f(x) is close to 0 then it is unlikely that 2 vectors are similar, since the count will be very low.</p>
                                                         <p>f:<math>R<sup>+</sup></math>→[0,1] exists s.t. f(x)=1/2(tanh(ax-b)+1) where a,b are scalable constants.</p>
                                                         <br><img src="img/tanh.png" alt="Sigmoid Function" class="personas" style="width: 50%; height: 230px;"><br>
