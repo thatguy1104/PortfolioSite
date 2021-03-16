@@ -264,43 +264,61 @@ http://www.templatemo.com/tm-508-power
 
                                                     <p><b>Must Have:</b></p>
                                                     <ul class="ordered">
-                                                        <li><p>Data Scraping</p></li>
+                                                        <li><p>Data Mining</p></li>
                                                         <ul class="ordered_2">
-                                                            <li><p>Research Publication Service (RPS) - unique research publication identifiers</p></li>
                                                             <li><p>Scopus - research publication data and metadata</p></li>
+                                                            <ul class="ordered_3">
+                                                                <li><p>Use Scopus API to access data points: title, abstract, DOI, subject areas, index keywords, author keywords, elsevier link</p></li>
+                                                            </ul>
                                                             <li><p>UCL Module Catalogue - module data</p></li>
+                                                            <ul class="ordered_3">
+                                                                <li><p>Use of UCL API to acquire departmental data</p></li>
+                                                                <li><p>Module description, title, ID, module lead, credit value</p></li>
+                                                            </ul>
                                                         </ul>
                                                         <li><p>Data Validation</p></li>
                                                         <ul class="ordered_2">
-                                                            <li><p>Validating Scopus author, index keywords and overall metadata</p></li>
+                                                            <li><p>SDG Keywords - UCL module catalogue and Scopus research publications</p></li>
+                                                            <ul class="ordered_3">
+                                                                <li><p>Use string matching to count occurences of SDG-specific keywords and compare distribution with that trained by mode prediction. (similarity index)</p></li>
+                                                            </ul>
                                                             <li><p>Providing most up-to-date data on research publications and course modules</p></li>
+                                                            <li><p>Django visual validation on a RGB red→green scale</p></li>
                                                         </ul>
                                                         <li><p>Data Visualisation</p></li>
                                                         <ul class="ordered_2">
                                                             <li><p>Tableau (accessed through database credentials)</p></li>
+                                                                <ul class="ordered_3">
+                                                                    <li><p>View SDG sizes in accordance to students per module / department / faculty</p></li>
+                                                                </ul>
+                                                            <li><p>Django web application (deployed)</p></li>
+                                                                <ul class="ordered_3">
+                                                                    <li><p>Search for UCL modules and Scopus data</p></li>
+                                                                    <li><p>Export modules / scopus search results to CSV</p></li>
+                                                                    <li><p>View TSNE Clustering for SDG & IHE mappings</p></li>
+                                                                </ul>
                                                             <li><p>Bubble Chart</p></li>
-                                                            <li><p>List</p></li>
                                                             <li><p>Spreadsheet</p></li>
                                                         </ul>
                                                     </ul>
                                                     <br>
                                                     <p><b>Should have:</b></p>
                                                     <ul class="ordered">
-                                                        <li><p>Adding configuration options for the search</p></li>
-                                                        <li><p>Link to IRIS account</p></li>
+                                                        <li><p>Django visual validation on a green ← red colour scale</p></li>
+                                                        <li><p>Add configuration options for keyword search</p></li>
                                                         <li><p>Interaction with the bubble chart / tableau to give a list of researchers within a particular category</p></li>
+                                                        <li><p>Walkthrough guide on final product usage & maintenance</p></li>
                                                     </ul>
                                                     <br>
                                                     <p><b>Could Have:</b></p>
                                                     <ul class="ordered">
-                                                        <li><p>Options for the user to link with other researchers found (Connections)</p></li>
+                                                        <li><p>Link to IRIS account</p></li>
+                                                        <li><p>Profile pages for each researcher</p></li>
                                                         <li><p>Main page description of what the website does and how it works</p></li>
-                                                        <li><p>Load and save pages to keep a record of previous searches</p></li>
                                                     </ul>
                                                     <br>
                                                     <p><b>Would like to have:</b></p>
                                                     <ul class="ordered">
-                                                        <li><p>Profile pages for each researcher</p></li>
                                                         <li><p>Filtering options to allow for more explicit searches</p></li>
                                                     </ul>
                                                     <br>

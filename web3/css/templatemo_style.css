@@ -40,6 +40,13 @@ ul.ordered_2 {
   margin-left: 40px;
 }
 
+ul.ordered_3 {
+  list-style: outside;
+  margin: 0px;
+  font-size: 16px;
+  margin-left: 70px;
+}
+
 iframe.miro {
   width: 100%;
 }
