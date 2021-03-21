@@ -474,20 +474,24 @@ http://www.templatemo.com/tm-508-power
                                                         <p><b>Design Structure: Module Catalogue</b></p>
                                                             <p>The module catalogue is a key place in which our NLP takes place in order to recognise and identify various Sustainable Development Goals (SDGs). In our design, we used the descriptions from each module in order to identify a keyword that strongly correlates to that module and can be used to check whether certain modules contain and talk about various SDGs.</p>
                                                             <p>We keep these matched modules in a separate file as this allows it to be easily read, and this is a file that can be used in order to send through results easily to our clients as search results.</p>
+                                                        <br>
                                                         <p><b>Design Structure: Scopus Matching</b></p>
                                                             <p>Our design here works slightly similarly to the way the SDG matching works in the UCL Module Catalogue in which all the data points for each publication on the Scopus database are matched to the SDG through keywords. Again, these successful matches are put into a separate file for easy access.</p>
+                                                        <br>
                                                         <p><b>Key Functionalities</b></p>
                                                             <p>Our first key functionality is for the mapping of relevant SDGs to the UCL Module Catalogue which is accomplished by gathering keywords from each of the SDGs using our Natural Language Toolkit to get those keywords. These keywords are matched to each Module using the “Beautiful Soup” library to fetch the webpage of each module in a html format that can be matched with the keywords using the Natural Language Processing algorithm GuidedLDA (see Implementation).</p>
                                                             <p>Our second key functionality is searching and matching certain terms within the Scopus database in order to find researchers who have worked on a specific topic by matching with their published works by checking every given field.</p>
-                                                        <p><b>Server Communication Structure</b></p>
-                                                        <ul class="ordered">
-                                                            <br><img src="img/sysdesign.png" alt="Server Communication Diagram" class="personas"><br>
-                                                            <li><p>The user would send requests to the database via a search tool that would use keywords of the user’s choice that would be used as the basis of their search. This request is sent to the azure database where it then sends a request to the information database (such as RPS) and this would provide the full scale of information and data that it contains. This information is used by our algorithm to scrape and sort through the information based on the user’s request. Once it has the required, sorted information, it is then sent back to the user in a form that can be easily visualised.</p></li>
-                                                        </ul>
+                                                        <br>
+                                                        <p><b>System Architecture Design (Detailed)</b></p>
+                                                            <img src="img/sys_achitecture.png" alt="Server Communication Diagram" class="personas"><br>
+                                                        <br>
+                                                        <p><b>System Architecture Design (High-level Overview)</b></p>
+                                                            <img src="img/over_view_sys_arch.jpg" alt="Server Communication Diagram" class="personas"><br>
+                                                        <br>
+                                                        <p><b>System Component Interactions</b></p>
+                                                            <img src="img/component_actions.png" alt="Server Communication Diagram" class="personas"><br>
                                                     <br><br>
-                                                    <h4>Class Diagram</h4>
-                                                        <img src="img/uml.png" alt="Server Communication Diagram" class="personas">
-                                                    <h4>Django Design</h4>
+                                                    <h4>Django Framework Structure</h4>
                                                         <img src="img/django_diagram.png" alt="Server Communication Diagram" class="personas"><br>
                                                 </div>
                                             </div>
