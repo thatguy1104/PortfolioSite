@@ -262,67 +262,110 @@ http://www.templatemo.com/tm-508-power
                                                     <br><br>
 
                                                     <h4>MoSCoW List</h4>
-
-                                                    <p><b>Must Have:</b></p>
-                                                    <ul class="ordered">
-                                                        <li><p>Data Mining</p></li>
-                                                        <ul class="ordered_2">
-                                                            <li><p>Scopus - research publication data and metadata</p></li>
-                                                            <ul class="ordered_3">
-                                                                <li><p>Use Scopus API to access data points: title, abstract, DOI, subject areas, index keywords, author keywords, elsevier link</p></li>
-                                                            </ul>
-                                                            <li><p>UCL Module Catalogue - module data</p></li>
-                                                            <ul class="ordered_3">
-                                                                <li><p>Use of UCL API to acquire departmental data</p></li>
-                                                                <li><p>Module description, title, ID, module lead, credit value</p></li>
-                                                            </ul>
-                                                        </ul>
-                                                        <li><p>Data Validation</p></li>
-                                                        <ul class="ordered_2">
-                                                            <li><p>SDG Keywords - UCL module catalogue and Scopus research publications</p></li>
-                                                            <ul class="ordered_3">
-                                                                <li><p>Use string matching to count occurences of SDG-specific keywords and compare distribution with that trained by mode prediction. (similarity index)</p></li>
-                                                            </ul>
-                                                            <li><p>Providing most up-to-date data on research publications and course modules</p></li>
-                                                            <li><p>Django visual validation on a RGB red→green scale</p></li>
-                                                        </ul>
-                                                        <li><p>Data Visualisation</p></li>
-                                                        <ul class="ordered_2">
-                                                            <li><p>Tableau (accessed through database credentials)</p></li>
-                                                                <ul class="ordered_3">
-                                                                    <li><p>View SDG sizes in accordance to students per module / department / faculty</p></li>
-                                                                </ul>
-                                                            <li><p>Django web application (deployed)</p></li>
-                                                                <ul class="ordered_3">
-                                                                    <li><p>Search for UCL modules and Scopus data</p></li>
-                                                                    <li><p>Export modules / scopus search results to CSV</p></li>
-                                                                    <li><p>View TSNE Clustering for SDG & IHE mappings</p></li>
-                                                                </ul>
-                                                            <li><p>Bubble Chart</p></li>
-                                                            <li><p>Spreadsheet</p></li>
-                                                        </ul>
-                                                    </ul>
-                                                    <br>
-                                                    <p><b>Should have:</b></p>
-                                                    <ul class="ordered">
-                                                        <li><p>Django visual validation on a green ← red colour scale</p></li>
-                                                        <li><p>Add configuration options for keyword search</p></li>
-                                                        <li><p>Interaction with the bubble chart / tableau to give a list of researchers within a particular category</p></li>
-                                                        <li><p>Walkthrough guide on final product usage & maintenance</p></li>
-                                                    </ul>
-                                                    <br>
-                                                    <p><b>Could Have:</b></p>
-                                                    <ul class="ordered">
-                                                        <li><p>Link to IRIS account</p></li>
-                                                        <li><p>Profile pages for each researcher</p></li>
-                                                        <li><p>Main page description of what the website does and how it works</p></li>
-                                                    </ul>
-                                                    <br>
-                                                    <p><b>Would like to have:</b></p>
-                                                    <ul class="ordered">
-                                                        <li><p>Filtering options to allow for more explicit searches</p></li>
-                                                    </ul>
-                                                    <br>
+                                                    <table class="table table-striped table-hover" style="border: 1px solid black;">
+                                                        <thead>
+                                                            <th scope="col">ID</th>
+                                                            <th scope="col">Requirement Description</th>
+                                                            <th scope="col">Priority</th>
+                                                        </thead>
+                                                        <tbody>
+                                                            <tr>
+                                                                <td style="text-align: center">1</td>
+                                                                <td>Scrape UCL research publications from Scopus by leveraging the Scopus API to gather the following data: {title, abstract, DOI, subject areas, index keywords, author keywords, elsevier link, …}.</td>
+                                                                <td style="text-align: center">Must</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">2</td>
+                                                                <td>Scrape UCL modules from the UCL module catalogue by leveraging the UCL API to acquire the following data: {description, title, ID, module lead, credit value, …}.</td>
+                                                                <td style="text-align: center">Must</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">3</td>
+                                                                <td>Produce an extensive set of keywords (CSV file) for UN SDGs (United Nations Sustainable Development Goals) and IHE (Institute of Healthcare Engineering) topics.</td>
+                                                                <td style="text-align: center">Must</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">4</td>
+                                                                <td>Use NLP to preprocess text for UCL module fields: {description, name} and Scopus research publication fields: {title, abstract, index keywords, author keywords}.</td>
+                                                                <td style="text-align: center">Must</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">5</td>
+                                                                <td>Train a semi-supervised NLP model to map UCL module catalogue descriptions to UN SDGs (United Nations Sustainable Development Goals).</td>
+                                                                <td style="text-align: center">Must</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">6</td>
+                                                                <td>Train a semi-supervised NLP model to map Scopus research publications to IHE (Institute of Healthcare Engineering) research specialities and subject areas.</td>
+                                                                <td style="text-align: center">Must</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">7</td>
+                                                                <td>Providing the most up-to-date data on Scopus research publications and UCL course modules.</td>
+                                                                <td style="text-align: center">Must</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">8</td>
+                                                                <td>Django web application implemented and fully deployed.</td>
+                                                                <td style="text-align: center">Must</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">9</td>
+                                                                <td>Django keyword search functionality for Scopus research publications.</td>
+                                                                <td style="text-align: center">Must</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">10</td>
+                                                                <td>Train a supervised machine learning model, such as an SVM (Support Vector Machine), aimed at reducing the number of false positives from the NLP model.</td>
+                                                                <td style="text-align: center">Should</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">11</td>
+                                                                <td>Use the NLP model, trained on SDG-specific keywords, to make SDG mapping predictions for UCL research publications from Scopus.</td>
+                                                                <td style="text-align: center">Should</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">12</td>
+                                                                <td>Validate the NLP model using a string matching algorithm to count SDG-specific keyword occurrences and compare the probability distribution with that produced by the NLP model, trained on the same set of SDG-specific keywords (represents a similarity index in the range [0,1]).</td>
+                                                                <td style="text-align: center">Should</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">13</td>
+                                                                <td>Machine Learning visualisation using TSNE Clustering (via dimensionality reduction) and Intertopic Distance Map (via multidimensional scaling) for SDG & IHE topic mappings, deployed on Django.</td>
+                                                                <td style="text-align: center">Should</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">14</td>
+                                                                <td>Visualisation of SDG results using Tableau (accessed through database credentials). Should be able to view SDG sizes in accordance to the number of students per module/department/faculty across UCL.</td>
+                                                                <td style="text-align: center">Should</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">15</td>
+                                                                <td>Walkthrough guide describing how to use the final product & system maintenance (for rerunning the scraping and retraining the NLP model on an annual basis).</td>
+                                                                <td style="text-align: center">Should</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">16</td>
+                                                                <td>Django keyword search functionality for UCL modules, from the module catalogue (bonus feature).</td>
+                                                                <td style="text-align: center">Could</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">17</td>
+                                                                <td>Django logic for visualising validation using similarity index, mapping from values in the range [0,1] to a red-green colour gradient [red, green].</td>
+                                                                <td style="text-align: center">Could</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">18</td>
+                                                                <td>Django button for exporting Scopus keyword search results to a CSV file format (bonus feature for exporting UCL module keyword searches).</td>
+                                                                <td style="text-align: center">Could</td>
+                                                            </tr>
+                                                            <tr>
+                                                                <td style="text-align: center">19</td>
+                                                                <td>Django option for sorting rows of the NLP model results table, based on the validation similarity index (red-green colour gradient).</td>
+                                                                <td style="text-align: center">Could</td>
+                                                            </tr>
+                                                        </tbody>
+                                                    </table>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -718,7 +761,7 @@ http://www.templatemo.com/tm-508-power
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td>Project Website Report Documentation</td>
+                                                                        <td>Website Report</td>
                                                                         <td>33%</td>
                                                                         <td>33%</td>
                                                                         <td>34%</td>
@@ -733,49 +776,67 @@ http://www.templatemo.com/tm-508-power
                                                                         <td>Video Editing</td>
                                                                         <td>33%</td>
                                                                         <td>33%</td>
-                                                                        <td>33%</td>
-                                                                    </tr>
-                                                                    <tr>
-                                                                        <td>Problem Research</td>
-                                                                        <td>33%</td>
                                                                         <td>34%</td>
-                                                                        <td>33%</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>NLP Experiments</td>
+                                                                        <td>Research</td>
+                                                                        <td>25%</td>
+                                                                        <td>50%</td>
+                                                                        <td>25%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Natural Language Processing (NLP)</td>
+                                                                        <td>0%</td>
+                                                                        <td>95%</td>
+                                                                        <td>5%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Machine Learning</td>
+                                                                        <td>0%</td>
+                                                                        <td>100%</td>
+                                                                        <td>0%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>NLP Model Validation</td>
                                                                         <td>0%</td>
                                                                         <td>90%</td>
                                                                         <td>10%</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>NLP / Machine Learning code</td>
+                                                                        <td>Data Visualisation</td>
                                                                         <td>0%</td>
-                                                                        <td>100%</td>
-                                                                        <td>0%</td>
+                                                                        <td>95%</td>
+                                                                        <td>5%</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>Scraping Scripts Code</td>
+                                                                        <td>Data Mining (Scraping)</td>
                                                                         <td>0%</td>
                                                                         <td>0%</td>
                                                                         <td>100%</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>Django Web Application / UI Development</td>
+                                                                        <td>Django UI Development</td>
                                                                         <td>0%</td>
                                                                         <td>5%</td>
                                                                         <td>95%</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>Project Deployment</td>
-                                                                        <td>95%</td>
-                                                                        <td>0%</td>
+                                                                        <td>Database Management</td>
                                                                         <td>5%</td>
+                                                                        <td>10%</td>
+                                                                        <td>85%</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>Client Communication</td>
-                                                                        <td>34%</td>
-                                                                        <td>33%</td>
-                                                                        <td>33%</td>
+                                                                        <td>Deployment</td>
+                                                                        <td>90%</td>
+                                                                        <td>0%</td>
+                                                                        <td>10%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td>Communication</td>
+                                                                        <td>40%</td>
+                                                                        <td>30%</td>
+                                                                        <td>30%</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Requirement Gathering</td>
@@ -784,21 +845,15 @@ http://www.templatemo.com/tm-508-power
                                                                         <td>30%</td>
                                                                     </tr>
                                                                     <tr>
-                                                                        <td>Team Communication</td>
-                                                                        <td>33%</td>
-                                                                        <td>33%</td>
-                                                                        <td>34%</td>
-                                                                    </tr>
-                                                                    <tr>
                                                                         <td>Overall contribution</td>
-                                                                        <td>31%</td>
-                                                                        <td>33%</td>
-                                                                        <td>36%</td>
+                                                                        <td>30%</td>
+                                                                        <td>35%</td>
+                                                                        <td>35%</td>
                                                                     </tr>
                                                                     <tr>
                                                                         <td>Main Roles</td>
                                                                         <td>Database Deployer, Researcher, Team Liaison</td>
-                                                                        <td>Back End Developer, NLP / Machine Learning Development, Researcher.</td>
+                                                                        <td>Back End Developer, NLP / Machine Learning Developer, Researcher</td>
                                                                         <td>Project Website Manager, Back End Developer, Front End Developer</td>
                                                                     </tr>
                                                                 </tbody>
@@ -941,8 +996,334 @@ http://www.templatemo.com/tm-508-power
                         </div>
                             <p style="text-align: left"><b>Legal Issues</b></p>
                                 <p>We have worked hard to ensure that our project completely follow all licensing, copyright and GDPR law. Although no data was collected under GDPR, we do have names of various authors of publications being collected, as well as the names of professors who teach different modules across UCL; however, this information is already publicly available and does not constitute a need for any confidentiality. In line with UK copyright, using the Scopus API stays in line with the moral right that all authors have which means that they are always credited for their own work. We further have a strict contractual relationship, defined through the conditions set within our MoSCoW list (see above). As the contractor team, we have been resolute with ensuring that we complete as many of the minimum defined requirements from our clients. The LDA algorithm we used, was from an open-source library for topic modelling and natural language processing (Gensim) while our GuidedLDA algorithm further uses the LatentDiricletAllocation (LDA) library and is publicly licensed for use by Vikash Singh.</p>
+                            <br>
                             <p style="text-align: left"><b>Processes</b></p>
                                 <p>Our deployment of our database uses Azure from a Django app which currently does not have an ongoing cost due to the project being within the limits of the free Azure web app subscription. The web app uses a Django application  We also have a subscription with MongoDB; however, this did not have enough available storage on the free subscription. In order to keep this running for our long term project sustainability, it has an average monthly cost of £8.77.</p>
+                            <p>Abbreviation Key</p>
+                                <ul class="ordered">
+                                    <li><p>MIT = Massachusetts Institute of Technology</p></li>
+                                    <li><p>OSI = Open-source Initiative</p></li>
+                                    <li><p>BSD = Berkeley Software Distribution</p></li>
+                                        <ul class="ordered_2">
+                                            <li><p>BSD-3-Clause: The 3 clause BSD License, also known as the New or Modified BSD License</p></li>
+                                            <li><p>BSD-2-Clause: The 2 clause BSD License, also known as the simplified or FreeBSD License</p></li>
+                                        </ul>
+                                    <li><p>MPL = Mozilla Public License</p></li>
+                                    <li><p>GNU = GNU’s Not Unix</p></li>
+                                    <li><p>GPL = General Public License</p></li>
+                                    <li><p>LGPL = Lesser General Public License</p></li>
+                                    <li><p>ISC = Internet Systems Consortium</p></li>
+                                    <li><p>PSF = Python Software Foundation</p></li>
+                                    <li><p>HPND = Historical Permission Notice and Disclaimer</p></li>
+                                    <li><p>AFL = Academic Free License</p></li>
+                                    <li><p>CAL = Client Access License</p></li>
+                                    <li><p>SSPL = Server Side Public License</p></li>
+                                    <li><p>AGPL = Affero General Public License</p></li>
+                                    <li><p>FOSS = Microsoft Free and Open-Source Software</p></li>
+                                    <li><p>SSI = Shared Source Initiative</p></li>
+                                    <li><p>TSL = Tableau Software License</p></li>
+                                </ul>
+                            <br>
+                            <table class="table table-striped table-hover" style="border: 1px solid black;">
+                                <thead>
+                                    <th scope="col">Library / Technology</th>
+                                    <th scope="col">Source</th>
+                                    <th scope="col">License</th>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>beautifulsoup4 v4.9.3</td>
+                                        <td>https://pypi.org/project/beautifulsoup4/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>bokeh v2.3.0</td>
+                                        <td>https://pypi.org/project/bokeh/</td>
+                                        <td>Freely Distributable, OSI Approved (BSD-3-Clause)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>certifi v2020.12.5</td>
+                                        <td>https://pypi.org/project/certifi/</td>
+                                        <td>MPL-2.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chardet v4.0.0</td>
+                                        <td>https://pypi.org/project/chardet/</td>
+                                        <td>GNU or LGPL</td>
+                                    </tr>
+                                    <tr>
+                                        <td>click v7.1.2</td>
+                                        <td>https://pypi.org/project/click/</td>
+                                        <td>BSD (BSD-3-Clause)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>cycler v0.10.0</td>
+                                        <td>https://pypi.org/project/Cycler/</td>
+                                        <td>BSD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>dnspython v2.1.0</td>
+                                        <td>https://pypi.org/project/dnspython/</td>
+                                        <td>ISCL</td>
+                                    </tr>
+                                    <tr>
+                                        <td>funcy v1.15</td>
+                                        <td>https://pypi.org/project/funcy/</td>
+                                        <td>BSD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>future v0.18.2</td>
+                                        <td>https://pypi.org/project/future/</td>
+                                        <td>OSI Approved, MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>gensim v3.8.3</td>
+                                        <td>https://pypi.org/project/gensim/</td>
+                                        <td>GNU LGPLv2+</td>
+                                    </tr>
+                                    <tr>
+                                        <td>idna v2.10</td>
+                                        <td>https://pypi.org/project/idna/</td>
+                                        <td>BSD (BSD-3-Clause)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Jinja2 v2.11.3</td>
+                                        <td>https://pypi.org/project/Jinja2/</td>
+                                        <td>BSD (BSD-3-Clause)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>joblib v1.0.1</td>
+                                        <td>https://pypi.org/project/joblib/</td>
+                                        <td>BSD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>kiwisolver v1.3.1</td>
+                                        <td>https://pypi.org/project/kiwisolver/</td>
+                                        <td>BSD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>lxml v4.6.2</td>
+                                        <td>https://pypi.org/project/lxml/</td>
+                                        <td>BSD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>markupSafe v1.1.1</td>
+                                        <td>https://pypi.org/project/MarkupSafe/</td>
+                                        <td>BSD (BSD-3-Clause)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>matplotlib v3.3.4</td>
+                                        <td>https://pypi.org/project/matplotlib/</td>
+                                        <td>PSF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>nltk v3.5</td>
+                                        <td>https://pypi.org/project/nltk/</td>
+                                        <td>Apache Software License v2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>numexpr v2.7.3</td>
+                                        <td>https://pypi.org/project/numexpr/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>numpy v1.20.1</td>
+                                        <td>https://pypi.org/project/numpy/</td>
+                                        <td>BSD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>packaging v20.9</td>
+                                        <td>https://pypi.org/project/packaging/</td>
+                                        <td>Apache Software License, BSD (BSD-2-Clause)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pandas v1.2.3</td>
+                                        <td>https://pypi.org/project/pandas/</td>
+                                        <td>BSD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pbr v5.5.1</td>
+                                        <td>https://pypi.org/project/pbr/</td>
+                                        <td>Apache Software License</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Pillow v8.1.2</td>
+                                        <td>https://pypi.org/project/Pillow/</td>
+                                        <td>HPND</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Psycopg2 v2.8.6</td>
+                                        <td>https://pypi.org/project/psycopg2/</td>
+                                        <td>GNU or LGPL</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pybliometrics v2.9.1</td>
+                                        <td>https://pypi.org/project/pybliometrics/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pyLDAvis v3.2.2</td>
+                                        <td>https://pypi.org/project/pyLDAvis/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pymongo v3.11.3</td>
+                                        <td>https://pypi.org/project/pyLDAvis/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pyodbc v4.0.30</td>
+                                        <td>https://pypi.org/project/pyodbc/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pyparsing v2.4.7</td>
+                                        <td>https://pypi.org/project/pyparsing/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>python-dateutil v2.8.1</td>
+                                        <td>https://pypi.org/project/python-dateutil/</td>
+                                        <td>Apache Software License, BSD (Dual License)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>pytz v2021.1</td>
+                                        <td>https://pypi.org/project/pytz/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PyYAML v5.4.1</td>
+                                        <td>https://pypi.org/project/PyYAML/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>regex v2021.3.17</td>
+                                        <td>https://pypi.org/project/regex/</td>
+                                        <td>Apache Software License</td>
+                                    </tr>
+                                    <tr>
+                                        <td>requests v2.25.1</td>
+                                        <td>https://pypi.org/project/requests/</td>
+                                        <td>Apache Software License v2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>scikit-learn v0.24.1</td>
+                                        <td>https://pypi.org/project/scikit-learn/</td>
+                                        <td>OSI Approved (New BSD)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>scipy v1.6.1</td>
+                                        <td>https://pypi.org/project/scipy/</td>
+                                        <td>BSD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>simplejson v3.17.2</td>
+                                        <td>https://pypi.org/project/simplejson/</td>
+                                        <td>AFL, MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>six v1.15.0</td>
+                                        <td>https://pypi.org/project/six/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>smart-open v4.2.0</td>
+                                        <td>https://pypi.org/project/smart-open/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>soupsieve v2.2.1</td>
+                                        <td>https://pypi.org/project/soupsieve/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>threadpoolctl v2.1.0</td>
+                                        <td>https://pypi.org/project/threadpoolctl/</td>
+                                        <td>BSD</td>
+                                    </tr>
+                                    <tr>
+                                        <td>tornado v6.1</td>
+                                        <td>https://pypi.org/project/tornado/</td>
+                                        <td>Apache Software License v2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>tqdm v4.59.0</td>
+                                        <td>https://pypi.org/project/tqdm/</td>
+                                        <td>MIT, MPLv2.0</td>
+                                    </tr>
+                                    <tr>
+                                        <td>typing-extensions v3.7.4.3</td>
+                                        <td>https://pypi.org/project/typing-extensions/</td>
+                                        <td>PSF</td>
+                                    </tr>
+                                    <tr>
+                                        <td>urllib3 v1.26.4</td>
+                                        <td>https://pypi.org/project/urllib3/</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Python v3.7</td>
+                                        <td>https://www.python.org/downloads/release/python-379/</td>
+                                        <td>GNU GPL-compatible</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Microsoft Azure v1.5.45.0</td>
+                                        <td>https://www.microsoft.com/en-us/licensing/product-licensing/azure</td>
+                                        <td>Windows Services, CAL (Closed Source)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Django v3.1.7</td>
+                                        <td>https://www.djangoproject.com/trademarks/</td>
+                                        <td>BSD, OSI-approved (BSD-3-clause)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>PostgreSQL v9.6</td>
+                                        <td>https://www.postgresql.org/about/licence/</td>
+                                        <td>The PostgreSQL License, OSI-approved</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Microsoft SQL Server v15.0.2000.5</td>
+                                        <td>https://www.microsoft.com/en-us/licensing/product-licensing/sql-server</td>
+                                        <td>Windows Services, CAL (Closed Source)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MySQL v8.0.23</td>
+                                        <td>https://www.mysql.com/about/legal/licensing/oem/</td>
+                                        <td>GPLv2, commercial proprietary License (dual license)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>MongoDB v4.4.4</td>
+                                        <td>https://www.mongodb.com/community/licensing</td>
+                                        <td>SSPLv1, GNU AGPLv3, Apache Software License v2</td>
+                                    </tr>
+                                    <tr>
+                                        <td>GitHub v2.18.0</td>
+                                        <td>https://docs.github.com/en/github/site-policy/github-terms-of-service</td>
+                                        <td>FOSS, SSI</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Tableau v2020.4.2</td>
+                                        <td>https://mkt.tableau.com/legal/tableau_eula.pdf</td>
+                                        <td>TSL</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Visual Studio Code v1.54.3</td>
+                                        <td>https://code.visualstudio.com/license</td>
+                                        <td>MIT, Proprietary License</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Azure Data Studio v1.27.0</td>
+                                        <td>https://docs.microsoft.com/en-us/sql/azure-data-studio/faq?view=sql-server-ver15</td>
+                                        <td>MIT</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nano v5.6.1</td>
+                                        <td>https://www.nano-editor.org</td>
+                                        <td>GNU GPLv3</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            
                     </div>
                 </div>
                 <div class="row">
