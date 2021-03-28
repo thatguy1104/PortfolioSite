@@ -710,20 +710,10 @@ http://www.templatemo.com/tm-508-power
                                                     <br><br>
                                                     <h4>NLP Testing: Model Validation</h4>
                                                         <p><b>Validation Testing</b></p>
-                                                            <p>The strategy we use for validating our SVM model results and comparing them to naïve string search, is cosine similarity.</p>
                                                             <img class="custom" src="img/formula.png" alt="Module colour status" class="personas"><br>
-                                                            <p>where <math>A<sub>i</sub>, B<sub>i</sub></math> are the components of vectors <math>A,B and〈A,B〉</math> is the inner product of vectors <math>A,B</math> respectively.</p>
-                                                            
-                                                            
-                                                            <p>We are given two probability distribution vectors <math>A,B</math> in the positive space of 18-dimensional real-valued vectors <math>𝑉⊆ℝ18</math>. Each component <math>A<sub>i</sub>∈A</math> is the probability our model predicts for a document being related to SDG<math><sub>i</sub></math> and each component <math>B<sub>i</sub>∈B</math> is the ratio of distinct keyword counts for SDG<math><sub>i</sub></math>. The component <math>B<sub>i</sub></math> is computed by counting the number of distinct keyword occurrences and dividing by the sum across all SDGs. Then, by assuming these facts about probability distributions, we were able to infer the following properties:</p>
-                                                            <img class="custom" src="img/formula_2.png" alt="Module colour status" class="personas"><br>
-                                                            <p>The range of values for the similarity index is then: </p>
-                                                            <p><math>0 ≤ cos(θ<sub>AB</sub>) ≤ 1 <--> cos(θ<sub>AB</sub>)</math></p>
-
                                                         <br>
                                                         <p><b>Other Testing Strategies </b></p>
                                                             <p>Other testing strategies not explicitly related to machine learning are using assert statements throughout the code which are the condition or Boolean expression which should always be true in any instance of running the code. Failing an assert inside a function means the function was incorrectly called or the data passed to it is incorrect. For example, when using our model to make a prediction on the DOI of a research paper, we have an assert that the length of the dataframe is equal to 1, otherwise if the length is 0 then an invalid DOI was provided.</p>
-
                                                     <br><br>
                                                     <h4>User acceptance testing: Feedback From Testers & Project Partners</h4>
                                                         <p><b>Neel Desai</b></p>
