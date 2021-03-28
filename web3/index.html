@@ -152,7 +152,7 @@ http://www.templatemo.com/tm-508-power
                 <div class="row">
                     <div class="col-md-12">
                         <div class="section-heading">
-                            <h4>What is does is:</h4>
+                            <h4>What it does:</h4>
                             <p>Scrape, map and generate classifiers with the intention of generating an overview of the extent of activity already taking place at an organization</p>
                         </div>
                     </div>
@@ -709,24 +709,21 @@ http://www.templatemo.com/tm-508-power
                                                             <p>For testing validation, we wrote unit tests for our cosine similarity function. One of the properties for probability distributions, which we derived mathematically, is that the range of values the similarity index can take is [0,1] which is a subset of the range for the cosine function [-1,1]. We were able to test vectors having the properties of orthogonality, parallelity and that the range of values computed by the function always lies in the range [0,1] by considering a large random sample of vectors in the positive vector space of 18 dimensional real vectors.</p>
                                                     <br><br>
                                                     <h4>NLP Testing: Model Validation</h4>
-                                                        <p>The strategy of testing the validation of our model training results is to use a combination of mathematical concepts from machine learning:</p>
-                                                        <ul class="ordered">
-                                                            <li><p>Cosine similarity</p></li>
-                                                            <li><p>Squashing function</p></li>
-                                                        </ul>
-                                                        <p>Cosine similarity is used to compare the angle between vectors A,B∈<math>R<sub>+</sub><sup>n</sup></math>, where in our case n= 1 8 and each component a<sub>i</sub>∈A for i=1,2,…,18 is the probability the model predicted for how much a document is related to SDG i and each component b<sub>i</sub>∈B for i=1,2,…,18 is the ratio of keyword counts for SDG i. From these assumptions, two properties hold:</p>
-                                                        <ul class="ordered">
-                                                            <li><p>‖A‖=1 and ‖B‖=1</p></li>
-                                                            <li><p>
-                                                            <math>A,B∈R<sub>+</sub><sup>n</sup>  ⟹ ∀a<sub>i</sub>∀b<sub>i</sub>(a<sub>i</sub> ≥ 0)∧(b<sub>i</sub>i ≥ 0) ⟹ ∑<sub>i=1</sub><sup>n</sup>a<sub>i</sub>b<sub>i</sub> ≥ 0 ⟹ 〈A,B〉 ≥ 0 ⟹ 〈A,B〉/‖A‖‖B‖ ≥ 0 ⟹ cos(θ<sub>A,B</sub>) ≥ 0</math></p></li>
-                                                        </ul>
-                                                        <br><img src="img/cosine_images.png" alt="Cosine image" class="personas" style="width: 50%; height: 230px;"><br>
-                                                        <p>From these properties we can deduce that: <math>cos(θ<sub>A,B</sub>) =〈A,B〉/‖A‖‖B‖</math></p>
-                                                        <p>A squashing function f:X→Y is a bijective function where X=<math>R<sup>+</sup></math> and Y=[0,1] maps any input x in <math>R<sup>+</sup></math> to f(x) in the range [0,1]. In our case, x is the number of keyword occurrences and if f(x) is close to 1 then it gives a greater belief for the similarity of 2 vectors whereas if f(x) is close to 0 then it is unlikely that 2 vectors are similar, since the count will be very low.</p>
-                                                        <p>f:<math>R<sup>+</sup></math>→[0,1] exists s.t. f(x)=1/2(tanh(ax-b)+1) where a,b are scalable constants.</p>
-                                                        <br><img src="img/tanh.png" alt="Sigmoid Function" class="personas" style="width: 50%; height: 230px;"><br>
-                                                        <p>The similarity is computed as <math>Sim(A,B) = cos(θ<sub>A,B</sub>)∙f(x)</math> which also has range [0,1].</p>
-                                                        <p>Other testing strategies not explicitly related to machine learning are using assert statements throughout the code which are the condition or Boolean expression which should always be true in any instance of running the code. Failing an assert inside a function means the function was incorrectly called or the data passed to it is incorrect. For example, when using our model to make a prediction on the DOI of a research paper, we have an assert that the length of the dataframe is equal to 1, otherwise if the length is 0 then an invalid DOI was provided.</p>
+                                                        <p><b>Validation Testing</b></p>
+                                                            <p>The strategy we use for validating our SVM model results and comparing them to naïve string search, is cosine similarity.</p>
+                                                            <img class="custom" src="img/formula.png" alt="Module colour status" class="personas"><br>
+                                                            <p>where <math>A<sub>i</sub>, B<sub>i</sub></math> are the components of vectors <math>A,B and〈A,B〉</math> is the inner product of vectors <math>A,B</math> respectively.</p>
+                                                            
+                                                            
+                                                            <p>We are given two probability distribution vectors <math>A,B</math> in the positive space of 18-dimensional real-valued vectors <math>𝑉⊆ℝ18</math>. Each component <math>A<sub>i</sub>∈A</math> is the probability our model predicts for a document being related to SDG<math><sub>i</sub></math> and each component <math>B<sub>i</sub>∈B</math> is the ratio of distinct keyword counts for SDG<math><sub>i</sub></math>. The component <math>B<sub>i</sub></math> is computed by counting the number of distinct keyword occurrences and dividing by the sum across all SDGs. Then, by assuming these facts about probability distributions, we were able to infer the following properties:</p>
+                                                            <img class="custom" src="img/formula_2.png" alt="Module colour status" class="personas"><br>
+                                                            <p>The range of values for the similarity index is then: </p>
+                                                            <p><math>0 ≤ cos(θ<sub>AB</sub>) ≤ 1 <--> cos(θ<sub>AB</sub>)</math></p>
+
+                                                        <br>
+                                                        <p><b>Other Testing Strategies </b></p>
+                                                            <p>Other testing strategies not explicitly related to machine learning are using assert statements throughout the code which are the condition or Boolean expression which should always be true in any instance of running the code. Failing an assert inside a function means the function was incorrectly called or the data passed to it is incorrect. For example, when using our model to make a prediction on the DOI of a research paper, we have an assert that the length of the dataframe is equal to 1, otherwise if the length is 0 then an invalid DOI was provided.</p>
+
                                                     <br><br>
                                                     <h4>User acceptance testing: Feedback From Testers & Project Partners</h4>
                                                         <p><b>Neel Desai</b></p>
@@ -736,7 +733,7 @@ http://www.templatemo.com/tm-508-power
                                                         <p><b>Simon Knowles</b></p>
                                                             <p>The feedback given to us by our client, Simon Knowles and project partner, Richard Allen from our original prototype demonstration emphasised on validating the model training results by comparing those results with SDG keyword string matching counts as an alternative method for mapping modules to SDGs. Furthermore, our clients wanted more data and visualisation describing a “bigger picture” of the mapping from UCL modules to SDGs. One of their requests was a bubble map diagram where each bubble represents an SDG, whose area is proportional to the number of students being taught about that particular SDG. In regard to this feedback, we were given a spreadsheet of the number of students against module reference numbers (e.g. FREN0074) so that we were able to produce the appropriate diagram:</p>
                                                             <br><img src="img/sdg_bubble.png" alt="Bubble results" class="personas"><br>
-                                                            <p>In addition, we extended the UI to give a visual representation of the validation process, which was comparing the similarity of the results obtained by our model to those obtained using a simple keyword string matching algorithm. Further filtering options were added to filter the table by comparing the similarity of modules to the values input by the user:</p>
+                                                            <p>In addition, we extended the UI to give a visual representation of the validation process, which was comparing the similarity of the results obtained by our model to those obtained using a simple keyword string matching algorithm.</p>
                                                             <br><img src="img/validation_color.png" alt="Module colour status" class="personas"><br>
                                                         <br>
                                                     <br><br>
@@ -1110,6 +1107,7 @@ http://www.templatemo.com/tm-508-power
                                                                 <li><p>Applying a supervised machine learning algorithm on the SDG mapping of GuidedLDA. It is worth experimenting with a Naïve Bayes classifier, Logistic Regression or a Recurrent Neural Network (RNN). The labels associated with a UCL module can be obtained from the GuidedLDA model (recommended) or by counting the occurrences of keywords for each SDG in the module description.</p></li>
                                                                 <li><p>A better approach would be to do a survey asking a subset of lecturers across different faculties at UCL which SDGs they believe their teaching corresponds to. This would be very helpful to validate and improve the mapping results. Furthermore, they can look into SDG mapping of modules from different universities and compare SDGs to those predicted by their model.</p></li>
                                                                 <li><p>Semantic analysis can be used to improve SDG mapping. SDG 1: No Poverty contains the keyword “class” which has a different meaning most of the time to where “class” is used in the UCL module catalogue, which is used to refer to a group of students who are taught together. Thus, to avoid confusion, we add “class” to our list of stopwords.</p></li>
+                                                                <li><p>While we have focused primarily on the functions and of this project, ensuring that there are as many useful features as possible, efficiency is also important. We believe that more multithreaded code can be used within our model, thereby allowing it to utilise more computing power where available and improve ease of use.</p></li>
                                                             </ul>
                                                 </div>
                                             </div>
