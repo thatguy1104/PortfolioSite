@@ -694,6 +694,19 @@ http://www.templatemo.com/tm-508-power
                                             <div class="col-md-12">
                                                 <div class="left-text">
                                                     <h4>Testing Strategy</h4>
+                                                        <p>Our testing strategy aims to test only the most critical aspects of the system. Those include Module, Scopus, Preprocessing and Validation components, which were tested using Unit Tests, more specifically, leveraging Python’s unittest framework. With regards to general testing, we tested machine learning and natural language processing aspects of the engine via validation against keyword occurrence analysis using traditional string matching methodology.</p>
+                                                    <br><br>
+                                                    <h4>Unit Testing</h4>
+                                                        <p><b>Module Component</b></p>
+                                                            <p>Within the Module component, we tested UCL API requests, as it is a vital aspect of ensuring the most up-to-date module data, since packages received comprise URL for module data scraping. Moreover, we produce a small number of test cases to ensure that the requests to the UCL Module Catalogue are functional and return appropriate data.</p>
+                                                        <p><b>Scopus Component</b></p>
+                                                            <p>Due to the limited size of this component and targeted purpose, we only need to test the functionality of the Scopus API. For this test to work, pybliometrics may request an API key setup and may therefore seemingly fail. Moreover, the tester must be either on the UCL network or use UCL API, since Scopus API limits its access to a set of specific institutions. The test ensures that appropriate data is returned and that an appropriate error is picked up when making a bad request.</p>
+                                                        <p><b>Preprocessing from NLP Component</b></p>
+                                                            <p></p>
+                                                        <p><b>Validation from NLP Component</b></p>
+                                                            <p></p>
+                                                    <br><br>
+                                                    <h4>NLP Testing: Model Validation</h4>
                                                         <p>The strategy of testing the validation of our model training results is to use a combination of mathematical concepts from machine learning:</p>
                                                         <ul class="ordered">
                                                             <li><p>Cosine similarity</p></li>
@@ -712,12 +725,6 @@ http://www.templatemo.com/tm-508-power
                                                         <br><img src="img/tanh.png" alt="Sigmoid Function" class="personas" style="width: 50%; height: 230px;"><br>
                                                         <p>The similarity is computed as <math>Sim(A,B) = cos(θ<sub>A,B</sub>)∙f(x)</math> which also has range [0,1].</p>
                                                         <p>Other testing strategies not explicitly related to machine learning are using assert statements throughout the code which are the condition or Boolean expression which should always be true in any instance of running the code. Failing an assert inside a function means the function was incorrectly called or the data passed to it is incorrect. For example, when using our model to make a prediction on the DOI of a research paper, we have an assert that the length of the dataframe is equal to 1, otherwise if the length is 0 then an invalid DOI was provided.</p>
-                                                    <br><br>
-                                                    <h4>Unit Testing</h4>
-                                                        <p></p>
-                                                    <br><br>
-                                                    <h4>Performance & Stress Testing</h4>
-                                                        <p></p>
                                                     <br><br>
                                                     <h4>User acceptance testing: Feedback From Testers & Project Partners</h4>
                                                         <p><b>Neel Desai</b></p>
