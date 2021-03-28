@@ -495,18 +495,20 @@ http://www.templatemo.com/tm-508-power
                                                             <p>In LDA, documents are probability distributions over latent topics and topics are probability distributions over words. LDA takes a corpus of documents, assuming that the words in each document are related. Our job is to tell LDA how many topics to construct, in our case there are 17 topics (one for each SDG) and it uses the algorithm described above to generate topic and word distributions over the corpus.</p>
                                                     <br><br>
                                                     <h4>Database</h4>
-                                                        <p>Microsoft Azure SQL Server will be used to host a SQL Database. Alternative options include using non-relational databases such as a document based database - mongoDB. However, upon evaluation, the team has decided to use the concept of relations to organise data in a logical and coherent manner, with faster access time, ensuring data consistency and integrity.</p>
+                                                        <p>We plan to use a combination of Microsoft Azure, MongoDB and PostgreSQL as part of our implementation, each for their specific purpose. We will use MongoDB to be able to keep unstructured data that is stored as JSON files, specifically, Scopus publication data, which presents a challenge with its multi-layer nested dictionaries to store in a relational database. The Django web application will then use MongoDB for model validation and visualisation purposes. There will further be a conversion from SQLite to PostgreSQL within Django to make sure that the data can be used within Azure.</p>
                                                     <br><br>
                                                     <h4>Deployment Automation:</h4>
+                                                        <br><p><b>Microsoft Azure</b></p>
+                                                            <ul class="ordered">
+                                                                <li><p></p></li>
+                                                                <li><p>Secure, robust, scalable and stable. However, questionable for a smaller size project.</p></li>
+                                                                <li><p>Microsoft Azure Functions allows for cron job-like functions to run continuously, relatively easy to set up.</p></li>
+                                                            </ul>
+
                                                         <p><b>Digital Ocean</b></p>
                                                             <ul class="ordered">
                                                                 <li><p>Digital Ocean Allows for creation of a Droplet Cronjob, for automation of particular scripts that run in a Linux VM. Although it's convenient, it does not provide features like backups, security firewall and it's harder to keep track of permissions compared to something like AWS or Microsoft Azure.</p></li>
                                                                 <li><p>It is a good choice for this project due to its simplicity; given a tight schedule we are still able to manage to stick to the ideologies of continuous integration and test-driven development.</p></li>
-                                                            </ul>
-                                                        <br><p><b>Microsoft Azure (Functions)</b></p>
-                                                            <ul class="ordered">
-                                                                <li><p>Secure, robust, scalable and stable. However, questionable for a smaller size project.</p></li>
-                                                                <li><p>Microsoft Azure Functions allows for cron job-like functions to run continuously, relatively easy to set up.</p></li>
                                                             </ul>
                                                         <br><p><b>Microsoft DevOps (Pilepines)</b></p>
                                                             <ul class="ordered">
@@ -733,9 +735,9 @@ http://www.templatemo.com/tm-508-power
                                                         <br>
                                                         <p><b>Simon Knowles</b></p>
                                                             <p>The feedback given to us by our client, Simon Knowles and project partner, Richard Allen from our original prototype demonstration emphasised on validating the model training results by comparing those results with SDG keyword string matching counts as an alternative method for mapping modules to SDGs. Furthermore, our clients wanted more data and visualisation describing a “bigger picture” of the mapping from UCL modules to SDGs. One of their requests was a bubble map diagram where each bubble represents an SDG, whose area is proportional to the number of students being taught about that particular SDG. In regard to this feedback, we were given a spreadsheet of the number of students against module reference numbers (e.g. FREN0074) so that we were able to produce the appropriate diagram:</p>
-                                                            <br><img src="" alt="Bubble results" class="personas"><br>
+                                                            <br><img src="img/sdg_bubble.png" alt="Bubble results" class="personas"><br>
                                                             <p>In addition, we extended the UI to give a visual representation of the validation process, which was comparing the similarity of the results obtained by our model to those obtained using a simple keyword string matching algorithm. Further filtering options were added to filter the table by comparing the similarity of modules to the values input by the user:</p>
-                                                            <br><img src="" alt="Module colour status" class="personas"><br>
+                                                            <br><img src="img/validation_color.png" alt="Module colour status" class="personas"><br>
                                                         <br>
                                                     <br><br>
                                                     <h4>Why This Test, Which Tool, How The Test Was Conducted, Results & Analysis</h4>
