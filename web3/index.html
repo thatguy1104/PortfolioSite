@@ -704,9 +704,9 @@ http://www.templatemo.com/tm-508-power
                                                         <p><b>Scopus Component</b></p>
                                                             <p>Due to the limited size of this component and targeted purpose, we only need to test the functionality of the Scopus API. For this test to work, pybliometrics may request an API key setup and may therefore seemingly fail. Moreover, the tester must be either on the UCL network or use UCL API, since Scopus API limits its access to a set of specific institutions. The test ensures that appropriate data is returned and that an appropriate error is picked up when making a bad request.</p>
                                                         <p><b>Preprocessing from NLP Component</b></p>
-                                                            <p></p>
+                                                            <p>For testing our pre-processing functions, we were able to check for removal of common English words, punctuation, lowercasing and module catalogue stopwords. We decided to omit testing our machine learning files such as Lda, GuidedLda and Svm since the model and validation results can change quite significantly when retraining the model. Furthermore, training the model is computationally expensive and so will take a long time to finish running the tests.</p>
                                                         <p><b>Validation from NLP Component</b></p>
-                                                            <p></p>
+                                                            <p>For testing validation, we wrote unit tests for our cosine similarity function. One of the properties for probability distributions, which we derived mathematically, is that the range of values the similarity index can take is [0,1] which is a subset of the range for the cosine function [-1,1]. We were able to test vectors having the properties of orthogonality, parallelity and that the range of values computed by the function always lies in the range [0,1] by considering a large random sample of vectors in the positive vector space of 18 dimensional real vectors.</p>
                                                     <br><br>
                                                     <h4>NLP Testing: Model Validation</h4>
                                                         <p>The strategy of testing the validation of our model training results is to use a combination of mathematical concepts from machine learning:</p>
@@ -1252,7 +1252,7 @@ http://www.templatemo.com/tm-508-power
                                         <td>MPL-2.0</td>
                                     </tr>
                                     <tr>
-                                        <td>Chardet v4.0.0</td>
+                                        <td>chardet v4.0.0</td>
                                         <td>https://pypi.org/project/chardet/</td>
                                         <td>GNU or LGPL</td>
                                     </tr>
@@ -1292,7 +1292,7 @@ http://www.templatemo.com/tm-508-power
                                         <td>BSD (BSD-3-Clause)</td>
                                     </tr>
                                     <tr>
-                                        <td>Jinja2 v2.11.3</td>
+                                        <td>jinja2 v2.11.3</td>
                                         <td>https://pypi.org/project/Jinja2/</td>
                                         <td>BSD (BSD-3-Clause)</td>
                                     </tr>
@@ -1352,12 +1352,12 @@ http://www.templatemo.com/tm-508-power
                                         <td>Apache Software License</td>
                                     </tr>
                                     <tr>
-                                        <td>Pillow v8.1.2</td>
+                                        <td>pillow v8.1.2</td>
                                         <td>https://pypi.org/project/Pillow/</td>
                                         <td>HPND</td>
                                     </tr>
                                     <tr>
-                                        <td>Psycopg2 v2.8.6</td>
+                                        <td>psycopg2 v2.8.6</td>
                                         <td>https://pypi.org/project/psycopg2/</td>
                                         <td>GNU or LGPL</td>
                                     </tr>
@@ -1397,7 +1397,7 @@ http://www.templatemo.com/tm-508-power
                                         <td>MIT</td>
                                     </tr>
                                     <tr>
-                                        <td>PyYAML v5.4.1</td>
+                                        <td>pyYAML v5.4.1</td>
                                         <td>https://pypi.org/project/PyYAML/</td>
                                         <td>MIT</td>
                                     </tr>
