@@ -909,12 +909,26 @@ http://www.templatemo.com/tm-508-power
                                                                     <th scope="col">ID</th>
                                                                     <th scope="col">Bug Description</th>
                                                                     <th scope="col">Priority</th>
+                                                                    <th style="text-align: center" scope="col">State</th>
                                                                 </thead>
                                                                 <tbody>
                                                                     <tr>
-                                                                        <td>1</td>
+                                                                        <td style="text-align: center">1</td>
                                                                         <td>Scraping error identified as an invalid DOI. Error raised was not due to an attempt to pull a research publication that does not exist in Scopus records but rather due to inability to control request rate and request count, given that the API sets weekly quotas. Hence, the code would seem as if it is performing well, however, it may just make a call to a wrongly formatted DOI string or the key may have exceeded the allocated quota limit.</td>
-                                                                        <td>High</td>
+                                                                        <td style="text-align: center">High</td>
+                                                                        <td style="text-align: center">Solved</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="text-align: center">2</td>
+                                                                        <td>In the LOADERS component, although the data loaded from MongoDB is seemingly in dictionary format, the data type of each key and respective value are still that of the cursor, which caused numerous bugs with extra fields added, specifically the "_id".  What made it tricker is the illusion that traditional JSON conversion does not solve the issue, merely prolongs the stage of failure. It was eventually solved using bson's library function json_util.dumps(data) for cursor type conversion.</td>
+                                                                        <td style="text-align: center">Medium</td>
+                                                                        <td style="text-align: center">Solved</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="text-align: center">3</td>
+                                                                        <td>Originally, pushing data to MongoDB was performed by identifying the key and values to perform an update(key, value, upsert=True) operation. However, if the data field changes for the same object, MongoDB will record that as a separate instance, this time, of another object. It creates issues of redundant duplication by keeping track of previous values. It was solved through increasing key specificity to a particular data field, for example, the EID or the DOI. In this manner, data fields of a specified object would be updated, rather than duplicated.</td>
+                                                                        <td style="text-align: center">Low</td>
+                                                                        <td style="text-align: center">Solved</td>
                                                                     </tr>
                                                                 </tbody>
                                                             </table>
@@ -1066,7 +1080,7 @@ http://www.templatemo.com/tm-508-power
                                                     <br><br>
 
                                                     <h4>Future work</h4>
-                                                        <p><b>How could the project be extended?</b></p>
+                                                        <p><b>Existing Infrastructure</b></p>
                                                             <p>The team has already put in place the basic infrastructure to establish the MieMie v3 project. This infrastructure includes:</p>
                                                             <ul class="ordered">
                                                                 <li><p>Python scripts for scraping RPS (Research Publications Service), Scopus database and the UCL Module Catalogue.</p></li>
@@ -1076,11 +1090,12 @@ http://www.templatemo.com/tm-508-power
                                                                 <li><p>The semi-supervised GuidedLDA machine learning algorithm uses this text, including a set of keywords for each SDG to map UCL modules and research publications to UN SDGs. The model was trained on nearly 5000 UCL modules but is used to predict the mapping for research publications.</p></li>
                                                                 <li><p>Visualisation of the SDG mapping using t-SNE clustering for a scatter plot, tableau and pyLDAvis for a bubble map. </p></li>
                                                             </ul>
+                                                        <p><b>How could the project be extended?</b></p>
                                                             <p>However, in the process of developing the project and experimenting with different tools, there are still many more features that we wanted to implement but didn’t have enough time to do so. Thus, we comprised a list of possible extensions that we believe would be extremely beneficial for both improving on the results we have already obtained and implementing new features:</p>
                                                             <ul class="ordered">
                                                                 <li><p>Tuning the GuidedLDA model to achieve a lower perplexity and fewer false positives. Normalizing the eta priors and lowering these values will help but we were unable to do so without the model giving us unwanted topics. Alternatively, it is also valuable to experiment with a KNN (K-Nearest Neighbour) algorithm that finds the k-closest topic vectors to the input document vector.</p></li>
                                                                 <li><p>Scraping additional modules from the UCL module catalogue. Unfortunately, we were unable to scrape modules from the Faculty of Laws using the UCL API, since it doesn’t include any information about this faculty. An alternative approach for scraping these modules needs to be considered.</p></li>
-                                                                <li><p>Applying a supervised machine learning algorithm on the SDG mapping of GuidedLDA. It is worth experimenting with a Naïve Bayes classifier, Linear Support Vector Machine (SVM), Logistic Regression or a Recurrent Neural Network (RNN). The labels associated with a UCL module can be obtained from the GuidedLDA model (recommended) or by counting the occurrences of keywords for each SDG in the module description.</p></li>
+                                                                <li><p>Applying a supervised machine learning algorithm on the SDG mapping of GuidedLDA. It is worth experimenting with a Naïve Bayes classifier, Logistic Regression or a Recurrent Neural Network (RNN). The labels associated with a UCL module can be obtained from the GuidedLDA model (recommended) or by counting the occurrences of keywords for each SDG in the module description.</p></li>
                                                                 <li><p>A better approach would be to do a survey asking a subset of lecturers across different faculties at UCL which SDGs they believe their teaching corresponds to. This would be very helpful to validate and improve the mapping results. Furthermore, they can look into SDG mapping of modules from different universities and compare SDGs to those predicted by their model.</p></li>
                                                                 <li><p>Semantic analysis can be used to improve SDG mapping. SDG 1: No Poverty contains the keyword “class” which has a different meaning most of the time to where “class” is used in the UCL module catalogue, which is used to refer to a group of students who are taught together. Thus, to avoid confusion, we add “class” to our list of stopwords.</p></li>
                                                             </ul>
