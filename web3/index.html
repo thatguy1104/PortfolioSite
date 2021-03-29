@@ -636,6 +636,37 @@ http://www.templatemo.com/tm-508-power
                                                         </ul>
 
                                                     <br><br>
+                                                    
+                                                    <h4>NLTK – Natural Language Toolkit</h4>
+                                                        <p><b>Supervised Learning – Support Vector Machine</b></p>
+                                                            <p>The purpose of using a supervised machine learning algorithm, such as the SVM, is to reduce the number of false positives predicted by our NLP model and to make accurate predictions on textual field data that it has never seen before – which forms our Universal SVM page on the Django web application.</p>
+                                                            <br><img src="img/svm_chart_1.jpg" alt="Universal SVM Chart" class="personas"><br>
+                                                            <p>While we want to have a high accuracy, because we believe the majority of topic modelling (and string search) results are accurate, we don’t want to cause overfitting because we know already that some of our LDA model predictions (and string search predictions) are incorrect.</p>
+                                                            <p>Support Vector Machine (SVM) is a linear classifier that uses SGD (Stochastic Gradient Descent training) with the scikit-learn machine learning library. We used the <a href="https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.SGDClassifier.html" target="_blank">SGDClassifer</a> class with the loss function set to ‘hinge’, which gives us a linear SVM model. We did try setting the loss to ‘log’ as well, which gives logistic regression, however this resulted in a lower accuracy than the linear SVM model:</p>
+                                                            <table class="table table-striped table-hover" style="border: 1px solid black;">
+                                                                <thead>
+                                                                    <th style="text-align: center" scope="col">Model</th>
+                                                                    <th style="text-align: center" scope="col">Accuracy</th>
+                                                                </thead>
+                                                                <tbody>
+                                                                    <tr>
+                                                                        <td style="text-align: center">SVM</td>
+                                                                        <td style="text-align: center">83%</td>
+                                                                    </tr>
+                                                                    <tr>
+                                                                        <td style="text-align: center">Logistic Regression</td>
+                                                                        <td style="text-align: center">77%</td>
+                                                                    </tr>
+                                                                </tbody>
+                                                            </table>
+                                                            <p>For training our SVM, we instantiate a <a href="https://scikit-learn.org/stable/modules/generated/sklearn.pipeline.Pipeline.html" target="_blank">Pipeline</a> for sequentially applying a list of transforms (TF-IDF vectorization) with a final estimator, which only needs to be fit (trained). We use the CalibratedClassifierCV as a wrapper around SGDClassifier because it allows us for predicting probabilities – which aren’t possible with SGDClassifier using a ‘hinge’ loss function (a linear SVM model). The calibrations are based on the predict_proba method, which returns an array of probability estimates for each class (SDG).</p>
+                                                            <br><img src="img/svm_1.jpg" alt="Code snippet 1" class="personas"><br>
+                                                            <p>We partition the dataset (containing UCL modules and research publications) using a 70-30% split. We take 70% of the data for the training set and 30% of the data for the test set. To train the model, we call fit on our Pipeline object and return the description and labels for the test set and training set.</p>
+                                                            <br><img src="img/svm_2.jpg" alt="Code snippet 2" class="personas"><br>
+                                                            <p>Once our model has been fit, we can apply our model to make predictions on any textual data field by pre-processing the text and calling the predict_proba method. In this naïve example, we predict an SDG which has the highest probability, however in our Django web application, we use a 30% tolerance and display the probability distribution as a table.</p>
+                                                            <br><img src="img/svm_3.jpg" alt="Code snippet 3" class="personas"><br>
+
+                                                    <br><br>
 
                                                     <h4>Django Search Engine Web Application</h4>
                                                         <p>As part of one of the client requirements, we are to interface the data gathered onto a web application. Although many alternatives exist, Django stands out as a best-suited solution for the task at hand. Below one may find an overview desired and the basic functionality the web application provides:</p>
@@ -1520,12 +1551,26 @@ http://www.templatemo.com/tm-508-power
                             </table>
                             <br>
                             <h4>Credits</h4>
+                                <p>System developed by:</p>
                                 <ul class="ordered">
-                                    <li><p>System developed by: Kareem Kermad (kareem.kermad.19@ucl.ac.uk), Varun Wignarajah (varun.wignarajah.19@ucl.ac.uk), Albert Mukhametov (albert.mukhametov.19@ucl.ac.uk)</p></li>
-                                    <li><p>Clients and organisations: Neel Desai (neel.desai.13@ucl.ac.uk), Marilyn Aviles (marilyn.aviles@ucl.ac.uk), Prof. Ann Blandford (ann.blandford@ucl.ac.uk), Dr. Simon Knowles (s.knowles@ucl.ac.uk)</p></li>
-                                    <li><p>Supervisors and Teaching Assistants: Toron Najiba (najiba.toron.09@ucl.ac.uk)</p></li>
-                                    <li><p>University College London</p></li>
-                                </ul>                 
+                                    <li><p>Kareem Kermad (kareem.kermad.19@ucl.ac.uk)</p></li>
+                                    <li><p>Varun Wignarajah (varun.wignarajah.19@ucl.ac.uk)</p></li>
+                                    <li><p>Albert Mukhametov (albert.mukhametov.19@ucl.ac.uk)</p></li>
+                                </ul>
+                                <br>
+                                <p>Clients and organisations:</p>
+                                <ul class="ordered">
+                                    <li><p>Neel Desai (neel.desai.13@ucl.ac.uk)</p></li>
+                                    <li><p>Marilyn Aviles (marilyn.aviles@ucl.ac.uk)</p></li>
+                                    <li><p>Prof. Ann Blandford (ann.blandford@ucl.ac.uk)</p></li>
+                                    <li><p>Dr. Simon Knowles (s.knowles@ucl.ac.uk)</p></li>
+                                </ul> 
+                                <br>
+                                <p>Supervisors and Teaching Assistants:</p>
+                                <ul class="ordered">
+                                    <li><p>Toron Najiba (najiba.toron.09@ucl.ac.uk)</p></li>
+                                </ul>
+                                <p>University College London</p>
                     </div>
                 </div>
                 <div class="row">
