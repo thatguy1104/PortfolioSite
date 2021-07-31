@@ -132,15 +132,20 @@ input, select, textarea {
 		font-style: italic;
 	}
 
-	p, ul, ol, dl, table, blockquote, form {
+	ul, ol, dl, table, blockquote, form {
 		margin: 0 0 2em 0;
+	}
+
+	p {
+		margin: 0 0 2em 0;
+		font-size: small;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
 		color: #5b5b5b;
 		font-weight: 700;
 		letter-spacing: 0.125em;
-		line-height: 1.75em;
+		line-height: 1.5em;
 		margin-bottom: 1em;
 		text-transform: uppercase;
 		text-align: center;
