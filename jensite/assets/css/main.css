@@ -145,7 +145,7 @@ input, select, textarea {
 		color: #5b5b5b;
 		font-weight: 700;
 		letter-spacing: 0.125em;
-		line-height: 1.5em;
+		line-height: 1em;
 		margin-bottom: 1em;
 		text-transform: uppercase;
 		text-align: center;
@@ -2657,7 +2657,7 @@ input, select, textarea {
 		.feature .content {
 			display: inline-block;
 			padding: 3.5em;
-			vertical-align: middle;
+			/* vertical-align: middle; */
 			width: 48%;
 		}
 
@@ -3020,7 +3020,7 @@ input, select, textarea {
 			}
 
 				.feature .content {
-					padding: 2.5em;
+					padding: 2em;
 				}
 
 		/* Header */
